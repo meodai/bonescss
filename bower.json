@@ -26,6 +26,6 @@
         "README.md"
     ],
     "dependencies": {
-        "sensibleGrid": ">=0.2.5"
+        "sensible": ">=0.2.5"
     }
 }
