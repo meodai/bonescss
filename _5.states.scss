@@ -1,0 +1,188 @@
+/*
+ * Hide only visually, but have it available for screen readers: h5bp.com/v
+ */
+$state-selectors: "%is-" ".is-" !default;
+$state-selectors-and: "&%is-" "&.is-" !default;
+
+@include prefixRule( "visuallyhidden", $prefixes: $state-selectors ) {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+    /*
+     * Extends the .visuallyhidden class to allow the element to be focusable
+     * when navigated to via the keyboard: h5bp.com/p
+     */
+    @include prefixRule( "focusable", $prefixes: $state-selectors-and ) {
+        &:active, &:focus {
+            clip: auto;
+            height: auto;
+            margin: 0;
+            overflow: visible;
+            position: static;
+            width: auto;
+        }
+    }
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+@include prefixRule( "invisible", $prefixes: $state-selectors ) {
+    visibility: hidden;
+}
+
+/*
+ * Generic class to disable buttons and links
+ */
+@include prefixRule( "disabled", $prefixes: $state-selectors ) {
+    @include opacity(0.5);
+    pointer-events: none;
+}
+
+/*
+ * Hide visually and from screen readers: h5bp.com/u
+ */
+@include prefixRule( "hidden", $prefixes: $state-selectors ) {
+    display: none !important;
+    visibility: hidden;
+}
+
+/**
+ * Used to show elements
+ * will be set to inherit by default, but can be block inline or inline-block as well,
+ * just use the modifiers
+ */
+@include prefixRule( "visible", $prefixes: $state-selectors ) {
+    display: inherit !important;
+    visibility: visible;
+    &--block {
+        display: block !important;
+    }
+    &--inline {
+        display: inline !important;
+    }
+    &--inline-block {
+        display: inline-block !important;
+    }
+}
+
+
+.is-hidden-js {
+    display: none;
+}
+.js .is-hidden-js {
+    display: none;
+}
+
+.no-js .is-hidden-js {
+    display: block;
+}
+
+.js .is-hidden-js {
+    display: none;
+}
+.no-js .is-visible-js {
+    display: none;
+}
+
+/* generic lading class */
+.is-loading {
+    pointer-events: none;
+    opacity: 0.5;
+
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%   { opacity: 0.2; }
+  50%  { opacity: 0.6; }
+  100% { opacity: 0.2; }
+}
+
+
+
+// Responsive helper classes:
+// todo: clean inherit mess
+
+.is-visible-mobile-portrait {
+    display: none !important;
+}
+.is-visible-mobile {
+    display: none !important;
+}
+.is-visible-tablet {
+    display: none !important;
+}
+.is-visible-tablet-portrait {
+    display: none !important;
+}
+.is-hidden-desktop {
+    display: none !important;
+}
+.is-visible-desktop {
+    display: inherit !important;
+}
+
+
+@include breakpoint(tablet) {
+    .is-hidden-desktop {
+        display: inherit !important;
+    }
+    .is-visible-desktop {
+        display: none !important;
+    }
+    .is-visible-tablet {
+        display: inherit !important;
+    }
+    .is-visible-tablet-portrait {
+        display: none !important;
+    }
+    .is-hidden-tablet {
+        display: none !important;
+    }
+}
+
+@include breakpoint(tablet-portrait) {
+    .is-visible-tablet {
+        display: none !important;
+    }
+    .is-visible-tablet-portrait {
+        display: inherit !important;
+    }
+    .is-hidden-tablet-portrait {
+        display: none !important;
+    }
+}
+
+@include breakpoint(mobile) {
+    .is-visible-mobile {
+        display: inherit !important;
+    }
+    .is-hidden-mobile {
+        display: none !important;
+    }
+}
+
+@include breakpoint(mobile-portrait) {
+    .is-visible-mobile-portrait {
+        display: inherit !important;
+    }
+    .is-hidden-mobile-portrait {
+        display: none !important;
+    }
+}
+
+@include breakpoint(print) {
+    .is-visible-print {
+        display: inherit !important;
+    }
+    .is-hidden-print {
+        display: none !important;
+    }
+}

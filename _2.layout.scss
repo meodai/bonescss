@@ -1,0 +1,217 @@
+/**
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+$layout-selectors: "%l-" ".l-" !default;
+
+@include prefixRule( "clearfix", $prefixes: $layout-selectors ) {
+    &:before, &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+/**
+ * Class used to wrap the contents of sections that should have the with of the design
+ */
+@include prefixRule( "site-width", $prefixes: $layout-selectors ) {
+    position: relative;
+    margin: 0 auto;
+    max-width: $s-design-width;
+}
+
+/**
+ * creates a inline list
+ * [|---|----|--|-----|      ]
+ */
+@include prefixRule( "horizontal-list", $prefixes: $layout-selectors ) {
+    list-style: none;
+    margin: 0; padding: 0;
+    > li {
+        @include inline-block(top);
+    }
+}
+
+/**
+ * set any direct children of the selected element inline
+ * [|---|----|--|-----|      ]
+ */
+@include prefixRule( "horizontal", $prefixes: $layout-selectors ) {
+    @include inline-block-fix;
+    > * {
+        @include inline-block(top);
+    }
+}
+
+/**
+ * inline list where all direct children have the same width
+ * [|-----|-----|-----|-----|]
+ */
+@include prefixRule( "horizontal-samewidth-list", $prefixes: $layout-selectors ) {
+    display: table;
+    list-style: none;
+    margin: 0; padding: 0;
+    width: 100%;
+    table-layout: fixed;
+    > li {
+        height: 100%;
+        display: table-cell;
+    }
+}
+
+/**
+ * used for elements placed next to each other that should be equidistand
+ * [|---|   |---|   |---|   |---|]
+ */
+@include prefixRule( "horizontal-equidistant", $prefixes: $layout-selectors ) {
+    text-align: justify;
+    font-size: 0.1px; /* IE 9 & 10 don't like font-size: 0; */
+    > * {
+        display: inline-block;
+        font-size: $s-font-base;
+    }
+    &:after {
+          content: '';
+          width: 100%; /* Ensures there are at least 2 lines of text, so justification works */
+          display: inline-block;
+    }
+}
+
+/**
+ * used to make tablelayouts
+ * no documentation for now, read the code :D
+ */
+@include prefixRule( "table", $prefixes: $layout-selectors) {
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+    /*
+    &--gapped {
+        margin-bottom: -$s-gutter;
+        @include prefixRule( "table-cell", $prefixes: $layout-selectors) {
+            padding-bottom: $s-gutter;
+        }
+        .l-table-cell + .l-table-cell {
+            padding-left: $s-gutter;
+        }
+    }
+    */
+}
+@include prefixRule( "table-row", $prefixes: $layout-selectors) {
+    display: table-row;
+}
+@include prefixRule( "table-cell", $prefixes: $layout-selectors) {
+    display: table-cell;
+    vertical-align: middle;
+    &--max {
+        width: 100%;
+    }
+    &--min {
+        width: 1%;
+    }
+}
+
+/**
+ * places children at the exremities of the parent
+ * [|----|                |---|]
+ */
+@include prefixRule( "horizontal-extremities", $prefixes: $layout-selectors ) {
+    @extend #{nth($layout-selectors, 1)}clearfix;
+    > * {
+        float: right;
+    }
+    > *:first-child {
+        float: left;
+    }
+
+}
+
+/**
+ * a few gutter helperclasses for margins on top and bottom of elements
+ */
+@include prefixRule( "gap" ) {
+    margin-bottom: $s-gutter;
+    &--double {
+        margin-bottom: $s-gutter * 2;
+    }
+    &--triple {
+        margin-bottom: $s-gutter * 3;
+    }
+}
+@include prefixRule( "gap-above" ) {
+    margin-top: $s-gutter;
+    &--double {
+        margin-top: $s-gutter * 2;
+    }
+    &--triple {
+        margin-top: $s-gutter * 3;
+    }
+}
+@include prefixRule( "no-gap" ) {
+    margin: 0;
+}
+
+/**
+ *  islands describe the padding of a box
+ */
+@include prefixRule( "continent", $prefixes: $layout-selectors ) {
+    padding: $s-gutter + ($s-gutter * .5);
+}
+@include prefixRule( "island", $prefixes: $layout-selectors ) {
+    padding: $s-gutter;
+}
+@include prefixRule( "islet", $prefixes: $layout-selectors ) {
+    padding: $s-gutter * .5;
+}
+
+/**
+ *   entirely fills out a element
+ */
+@include prefixRule( "fill", $prefixes: $layout-selectors ) {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+}
+
+/* centers with complicated table layout */
+@include prefixRule( "centered", $prefixes: $layout-selectors ) {
+
+}
+
+@include prefixRule( "centered-container", $prefixes: $layout-selectors ) {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+}
+
+@include prefixRule( "centered-inner", $prefixes: $layout-selectors) {
+    display: table;
+    vertical-align: middle;
+    text-align: center;
+    height: 100%; width: 100%;
+}
+
+@include prefixRule( "centered-content", $prefixes: $layout-selectors) {
+    display: table-cell;
+    vertical-align: middle;
+}
+@include prefixRule( "centered-body", $prefixes: $layout-selectors) {
+    position: relative;
+    display: inline-block;
+    max-width: 90%;
+    text-align: left;
+}
+
+
+/**
+ * Consider adding sensibe grid for grid and responsiveness
+ * @include sensibleGrid();
+ */

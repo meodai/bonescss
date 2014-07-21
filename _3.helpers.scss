@@ -1,0 +1,55 @@
+$text-selectors: "%t-" ".t-" !default;
+
+@include prefixRule( "selectable", $prefixes: $text-selectors ) {
+    user-select: text;
+}
+
+@include prefixRule( "not-selectable", $prefixes: $text-selectors ) {
+    user-select: none;
+}
+
+/**
+ * http://stackoverflow.com/questions/11459746/css3-webfont-smoothing-and-antialiasing-in-firefox-and-opera
+ */
+@include prefixRule( "antialiased", $prefixes: $text-selectors ) {
+    -webkit-font-smooting: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+ *  will trucate text needs a fixed width
+ *  http://css-tricks.com/snippets/css/truncate-string-with-ellipsis/
+ */
+@include prefixRule( "truncate", $prefixes: $text-selectors ) {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+.js-scrollbar-measure {
+    width: 100px; height: 100px;
+    overflow: scroll;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+/* icon helpers */
+
+.icon {
+    display: inline-block;
+    background-size: 100% 100%;
+    background-position: center center;
+    vertical-align: middle;
+    width: 32px; height: 32px;
+}
+
+$icon-sizes: 10 14 16 21 32;
+
+@each $size in $icon-sizes {
+    .icon[class*="--#{$size}"]{
+        width: #{$size}px;
+        height: #{$size}px;
+    }
+}

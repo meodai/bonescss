@@ -1,0 +1,31 @@
+{
+    "name": "bonescss",
+    "version": "0.0.1",
+    "main": [
+        "mixins/_inline-block-fix.scss",
+        "mixins/_prefixRule.scss",
+        "mixins/_tools-shape.scss",
+        "mixins/_tools-size.scss",
+        "_mixins.scss",
+        "_0.settings.scss",
+        "_2.layout.scss",
+        "_3.helpers.scss",
+        "_4.print.scss",
+        "_5.states.scss"
+    ],
+    "ignore": [
+        "source",
+        "spec",
+        ".bowerrc",
+        ".gitignore",
+        ".jshintignore",
+        ".jshintrc",
+        "bower.json",
+        "gruntfile.js",
+        "package.json",
+        "README.md"
+    ],
+    "dependencies": {
+        "sensibleGrid": ">=0.2.5"
+    }
+}

@@ -1,0 +1,46 @@
+/**
+ * triangle mixin produces a crossbrowser CSS triangle
+ * @height {[value]} height of the arrow
+ * @color {[color]} arrow color
+ * @direction {[string]} can be up down left or right
+ * @width: {[value]} by default the arrow has the same height and width
+ */
+@mixin triangle( $height: 10px, $color: #000, $direction: up, $width: false ){
+	@if $width == false {
+		$width: $height;
+	}
+
+	width: 0; height: 0;
+	border: solid transparent;
+
+	@if $direction == right {
+		border-width: ($height/2) 0 ($height/2) $width;
+		border-left-color: $color;
+	}
+
+	@if $direction == left {
+		border-width: ($height/2) $width ($height/2) 0;
+		border-right-color: $color;
+	}
+
+	@if $direction == up {
+		border-width: 0 ($width/2) $height ($width/2);
+		border-bottom-color: $color;
+	}
+
+	@if $direction == down {
+		border-width: $height ($width/2) 0 ($width/2);
+		border-top-color: $color;
+	}
+}
+
+/**
+ * circle mixin produces a circle of a given color and size
+ * @size {[value]} diameter of the circle
+ * @color {[color]} fill color
+ */
+@mixin circle( $size: 20px, $color: #000 ) {
+	width: $size; height: $size;
+	border-radius: 100%;
+	background: $color;
+}
