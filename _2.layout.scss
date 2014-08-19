@@ -11,7 +11,7 @@
  */
 $layout-selectors: "%l-" ".l-" !default;
 
-@include prefixRule( "clearfix", $prefixes: $layout-selectors ) {
+@include prefix-rule( "clearfix", $prefixes: $layout-selectors ) {
     &:before, &:after {
         content: " ";
         display: table;
@@ -24,7 +24,7 @@ $layout-selectors: "%l-" ".l-" !default;
 /**
  * Class used to wrap the contents of sections that should have the with of the design
  */
-@include prefixRule( "site-width", $prefixes: $layout-selectors ) {
+@include prefix-rule( "site-width", $prefixes: $layout-selectors ) {
     position: relative;
     margin: 0 auto;
     max-width: $s-design-width;
@@ -34,7 +34,7 @@ $layout-selectors: "%l-" ".l-" !default;
  * creates a inline list
  * [|---|----|--|-----|      ]
  */
-@include prefixRule( "horizontal-list", $prefixes: $layout-selectors ) {
+@include prefix-rule( "horizontal-list", $prefixes: $layout-selectors ) {
     list-style: none;
     margin: 0; padding: 0;
     > li {
@@ -46,7 +46,7 @@ $layout-selectors: "%l-" ".l-" !default;
  * set any direct children of the selected element inline
  * [|---|----|--|-----|      ]
  */
-@include prefixRule( "horizontal", $prefixes: $layout-selectors ) {
+@include prefix-rule( "horizontal", $prefixes: $layout-selectors ) {
     @include inline-block-fix;
     > * {
         @include inline-block(top);
@@ -57,7 +57,7 @@ $layout-selectors: "%l-" ".l-" !default;
  * inline list where all direct children have the same width
  * [|-----|-----|-----|-----|]
  */
-@include prefixRule( "horizontal-samewidth-list", $prefixes: $layout-selectors ) {
+@include prefix-rule( "horizontal-samewidth-list", $prefixes: $layout-selectors ) {
     display: table;
     list-style: none;
     margin: 0; padding: 0;
@@ -73,7 +73,7 @@ $layout-selectors: "%l-" ".l-" !default;
  * used for elements placed next to each other that should be equidistand
  * [|---|   |---|   |---|   |---|]
  */
-@include prefixRule( "horizontal-equidistant", $prefixes: $layout-selectors ) {
+@include prefix-rule( "horizontal-equidistant", $prefixes: $layout-selectors ) {
     text-align: justify;
     font-size: 0.1px; /* IE 9 & 10 don't like font-size: 0; */
     > * {
@@ -91,14 +91,14 @@ $layout-selectors: "%l-" ".l-" !default;
  * used to make tablelayouts
  * no documentation for now, read the code :D
  */
-@include prefixRule( "table", $prefixes: $layout-selectors) {
+@include prefix-rule( "table", $prefixes: $layout-selectors) {
     display: table;
     width: 100%;
     box-sizing: border-box;
     /*
     &--gapped {
         margin-bottom: -$s-gutter;
-        @include prefixRule( "table-cell", $prefixes: $layout-selectors) {
+        @include prefix-rule( "table-cell", $prefixes: $layout-selectors) {
             padding-bottom: $s-gutter;
         }
         .l-table-cell + .l-table-cell {
@@ -107,10 +107,10 @@ $layout-selectors: "%l-" ".l-" !default;
     }
     */
 }
-@include prefixRule( "table-row", $prefixes: $layout-selectors) {
+@include prefix-rule( "table-row", $prefixes: $layout-selectors) {
     display: table-row;
 }
-@include prefixRule( "table-cell", $prefixes: $layout-selectors) {
+@include prefix-rule( "table-cell", $prefixes: $layout-selectors) {
     display: table-cell;
     vertical-align: middle;
     &--max {
@@ -125,7 +125,7 @@ $layout-selectors: "%l-" ".l-" !default;
  * places children at the exremities of the parent
  * [|----|                |---|]
  */
-@include prefixRule( "horizontal-extremities", $prefixes: $layout-selectors ) {
+@include prefix-rule( "horizontal-extremities", $prefixes: $layout-selectors ) {
     @extend #{nth($layout-selectors, 1)}clearfix;
     > * {
         float: right;
@@ -139,7 +139,7 @@ $layout-selectors: "%l-" ".l-" !default;
 /**
  * a few gutter helperclasses for margins on top and bottom of elements
  */
-@include prefixRule( "gap" ) {
+@include prefix-rule( "gap" ) {
     margin-bottom: $s-gutter;
     &--double {
         margin-bottom: $s-gutter * 2;
@@ -148,7 +148,7 @@ $layout-selectors: "%l-" ".l-" !default;
         margin-bottom: $s-gutter * 3;
     }
 }
-@include prefixRule( "gap-above" ) {
+@include prefix-rule( "gap-above" ) {
     margin-top: $s-gutter;
     &--double {
         margin-top: $s-gutter * 2;
@@ -157,53 +157,53 @@ $layout-selectors: "%l-" ".l-" !default;
         margin-top: $s-gutter * 3;
     }
 }
-@include prefixRule( "no-gap" ) {
+@include prefix-rule( "no-gap" ) {
     margin: 0;
 }
 
 /**
  *  islands describe the padding of a box
  */
-@include prefixRule( "continent", $prefixes: $layout-selectors ) {
+@include prefix-rule( "continent", $prefixes: $layout-selectors ) {
     padding: $s-gutter + ($s-gutter * .5);
 }
-@include prefixRule( "island", $prefixes: $layout-selectors ) {
+@include prefix-rule( "island", $prefixes: $layout-selectors ) {
     padding: $s-gutter;
 }
-@include prefixRule( "islet", $prefixes: $layout-selectors ) {
+@include prefix-rule( "islet", $prefixes: $layout-selectors ) {
     padding: $s-gutter * .5;
 }
 
 /**
  *   entirely fills out a element
  */
-@include prefixRule( "fill", $prefixes: $layout-selectors ) {
+@include prefix-rule( "fill", $prefixes: $layout-selectors ) {
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
 }
 
 /* centers with complicated table layout */
-@include prefixRule( "centered", $prefixes: $layout-selectors ) {
+@include prefix-rule( "centered", $prefixes: $layout-selectors ) {
 
 }
 
-@include prefixRule( "centered-container", $prefixes: $layout-selectors ) {
+@include prefix-rule( "centered-container", $prefixes: $layout-selectors ) {
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
 }
 
-@include prefixRule( "centered-inner", $prefixes: $layout-selectors) {
+@include prefix-rule( "centered-inner", $prefixes: $layout-selectors) {
     display: table;
     vertical-align: middle;
     text-align: center;
     height: 100%; width: 100%;
 }
 
-@include prefixRule( "centered-content", $prefixes: $layout-selectors) {
+@include prefix-rule( "centered-content", $prefixes: $layout-selectors) {
     display: table-cell;
     vertical-align: middle;
 }
-@include prefixRule( "centered-body", $prefixes: $layout-selectors) {
+@include prefix-rule( "centered-body", $prefixes: $layout-selectors) {
     position: relative;
     display: inline-block;
     max-width: 90%;

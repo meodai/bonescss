@@ -4,7 +4,7 @@
 $state-selectors: "%is-" ".is-" !default;
 $state-selectors-and: "&%is-" "&.is-" !default;
 
-@include prefixRule( "visuallyhidden", $prefixes: $state-selectors ) {
+@include prefix-rule( "visuallyhidden", $prefixes: $state-selectors ) {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -18,7 +18,7 @@ $state-selectors-and: "&%is-" "&.is-" !default;
      * Extends the .visuallyhidden class to allow the element to be focusable
      * when navigated to via the keyboard: h5bp.com/p
      */
-    @include prefixRule( "focusable", $prefixes: $state-selectors-and ) {
+    @include prefix-rule( "focusable", $prefixes: $state-selectors-and ) {
         &:active, &:focus {
             clip: auto;
             height: auto;
@@ -33,14 +33,14 @@ $state-selectors-and: "&%is-" "&.is-" !default;
 /*
  * Hide visually and from screen readers, but maintain layout
  */
-@include prefixRule( "invisible", $prefixes: $state-selectors ) {
+@include prefix-rule( "invisible", $prefixes: $state-selectors ) {
     visibility: hidden;
 }
 
 /*
  * Generic class to disable buttons and links
  */
-@include prefixRule( "disabled", $prefixes: $state-selectors ) {
+@include prefix-rule( "disabled", $prefixes: $state-selectors ) {
     @include opacity(0.5);
     pointer-events: none;
 }
@@ -48,7 +48,7 @@ $state-selectors-and: "&%is-" "&.is-" !default;
 /*
  * Hide visually and from screen readers: h5bp.com/u
  */
-@include prefixRule( "hidden", $prefixes: $state-selectors ) {
+@include prefix-rule( "hidden", $prefixes: $state-selectors ) {
     display: none !important;
     visibility: hidden;
 }
@@ -58,7 +58,7 @@ $state-selectors-and: "&%is-" "&.is-" !default;
  * will be set to inherit by default, but can be block inline or inline-block as well,
  * just use the modifiers
  */
-@include prefixRule( "visible", $prefixes: $state-selectors ) {
+@include prefix-rule( "visible", $prefixes: $state-selectors ) {
     display: inherit !important;
     visibility: visible;
     &--block {
@@ -186,3 +186,4 @@ $state-selectors-and: "&%is-" "&.is-" !default;
         display: none !important;
     }
 }
+

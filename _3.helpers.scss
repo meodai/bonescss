@@ -1,17 +1,17 @@
 $text-selectors: "%t-" ".t-" !default;
 
-@include prefixRule( "selectable", $prefixes: $text-selectors ) {
+@include prefix-rule( "selectable", $prefixes: $text-selectors ) {
     user-select: text;
 }
 
-@include prefixRule( "not-selectable", $prefixes: $text-selectors ) {
+@include prefix-rule( "not-selectable", $prefixes: $text-selectors ) {
     user-select: none;
 }
 
 /**
  * http://stackoverflow.com/questions/11459746/css3-webfont-smoothing-and-antialiasing-in-firefox-and-opera
  */
-@include prefixRule( "antialiased", $prefixes: $text-selectors ) {
+@include prefix-rule( "antialiased", $prefixes: $text-selectors ) {
     -webkit-font-smooting: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -20,7 +20,7 @@ $text-selectors: "%t-" ".t-" !default;
  *  will trucate text needs a fixed width
  *  http://css-tricks.com/snippets/css/truncate-string-with-ellipsis/
  */
-@include prefixRule( "truncate", $prefixes: $text-selectors ) {
+@include prefix-rule( "truncate", $prefixes: $text-selectors ) {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
