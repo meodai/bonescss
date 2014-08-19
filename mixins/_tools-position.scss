@@ -1,0 +1,42 @@
+/**
+ * Absolutely centers an element in it's parent horizontal, vertically or in both directions
+ * @direction {[string]} vertical, horizontal or both
+ */
+@mixin absolute-center (
+  $direction: both
+){
+  position: absolute;
+  @if $direction == both {
+    top: 50%; left: 50%;
+    @include transform(translate(-50%, -50%));
+  } @else if $direction == horizontal {
+    left: 50%;
+    @include transform(translateX(-50%));
+  } @else if $direction == vertical {
+    top: 50%;
+    @include transform(translateY(-50%));
+  }
+}
+
+/**
+ * Circle trigonometric mixin
+ * x = a + r cos (t)
+ * y = b + r cos (t)
+ *
+ * where (a,b) is the center of the circle
+ * (in our case a = 0 and b = 0 for simplicity. )
+ *
+ * @degres {[degrees]} in deg
+ * @degres {[radius]} in whatever unit
+**/
+@mixin translate-point-from-circle-centre($degres, $radius: $s-gutter) {
+  $x-value: circle-x($radius, $degree);
+  $y-value: circle-y($radius, $degree);
+  transform: translate($x-value, -$y-value);
+}
+@function circle-x($radius, $degree) {
+  @return $radius * cos($degree);
+}
+@function circle-y($radius, $degree) {
+  @return $radius * sin($degree);
+}
