@@ -1,5 +1,6 @@
-bonescss
-========
+<img id="logo" align="right" height="90" style="margin: 0 0 20px 20px" src="http://imgh.us/icon_15566.svg">
+
+# bonescss
 
 SCSS/CSS starting-point for every project. Mixes [smacss](https://smacss.com/) namespaced [h5bp](https://github.com/h5bp/html5-boilerplate/) things with other stuff I use all the time. It includes all the nice things from H5BP nicely namespaced using SMACSS
 
@@ -148,3 +149,8 @@ Creates a CSS triagnle using the [border trick.](http://css-tricks.com/snippets/
 
 #### circle( $size, $color )
 Make a circle of a given color using border radius
+
+
+## Contributors
+
+Logo: (CC) [Alexandra Hawkhead](http://alexhawkhead.com/)
