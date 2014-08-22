@@ -4,7 +4,7 @@
  * @param  {[value]} $contextSize
  * @return {[value in %]}
  */
-@function px2percent ($size,$contextSize) {
+@function px2percent ($size,$contextSize: $s-design-width) {
 	@return ( $size / $contextSize) * 100%;
 }
 
@@ -25,7 +25,7 @@
  */
 @mixin font-size($px) {
 	font-size: ($px);
-	font-size: px2rem($px);
+	font-size: px2rel($px);
 }
 
 /**
@@ -34,5 +34,5 @@
  */
 @mixin line-height($px) {
 	line-height: ($px);
-	line-height: px2rem($px);
+	line-height: px2rel($px);
 }

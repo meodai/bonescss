@@ -70,7 +70,7 @@ $layout-selectors: "%l-" ".l-" !default;
 }
 
 /**
- * used for elements placed next to each other that should be equidistand
+ * used for elements placed next to each other that should be equidistant
  * [|---|   |---|   |---|   |---|]
  */
 @include prefix-rule( "horizontal-equidistant", $prefixes: $layout-selectors ) {
@@ -88,7 +88,7 @@ $layout-selectors: "%l-" ".l-" !default;
 }
 
 /**
- * used to make tablelayouts
+ * used to make table-layouts
  * no documentation for now, read the code :D
  */
 @include prefix-rule( "table", $prefixes: $layout-selectors) {
@@ -190,6 +190,7 @@ $layout-selectors: "%l-" ".l-" !default;
 @include prefix-rule( "centered-container", $prefixes: $layout-selectors ) {
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
+    overflow: auto;
 }
 
 @include prefix-rule( "centered-inner", $prefixes: $layout-selectors) {
@@ -212,6 +213,6 @@ $layout-selectors: "%l-" ".l-" !default;
 
 
 /**
- * Consider adding sensibe grid for grid and responsiveness
+ * Consider adding sensible grid for grid and responsiveness
  * @include sensibleGrid();
  */
