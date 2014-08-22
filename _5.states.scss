@@ -72,27 +72,8 @@ $state-selectors-and: "&%is-" "&.is-" !default;
     }
 }
 
-
-.is-hidden-js {
-    display: none;
-}
-.js .is-hidden-js {
-    display: none;
-}
-
-.no-js .is-hidden-js {
-    display: block;
-}
-
-.js .is-hidden-js {
-    display: none;
-}
-.no-js .is-visible-js {
-    display: none;
-}
-
-/* generic lading class */
-.is-loading {
+/* generic loading class */
+@include prefix-rule( "loading", $prefixes: $state-selectors ) {
     pointer-events: none;
     opacity: 0.5;
 
@@ -103,87 +84,5 @@ $state-selectors-and: "&%is-" "&.is-" !default;
   0%   { opacity: 0.2; }
   50%  { opacity: 0.6; }
   100% { opacity: 0.2; }
-}
-
-
-
-// Responsive helper classes:
-// todo: clean inherit mess
-
-.is-visible-mobile-portrait {
-    display: none !important;
-}
-.is-visible-mobile {
-    display: none !important;
-}
-.is-visible-tablet {
-    display: none !important;
-}
-.is-visible-tablet-portrait {
-    display: none !important;
-}
-.is-hidden-desktop {
-    display: none !important;
-}
-.is-visible-desktop {
-    display: inherit !important;
-}
-
-
-@include breakpoint(tablet) {
-    .is-hidden-desktop {
-        display: inherit !important;
-    }
-    .is-visible-desktop {
-        display: none !important;
-    }
-    .is-visible-tablet {
-        display: inherit !important;
-    }
-    .is-visible-tablet-portrait {
-        display: none !important;
-    }
-    .is-hidden-tablet {
-        display: none !important;
-    }
-}
-
-@include breakpoint(tablet-portrait) {
-    .is-visible-tablet {
-        display: none !important;
-    }
-    .is-visible-tablet-portrait {
-        display: inherit !important;
-    }
-    .is-hidden-tablet-portrait {
-        display: none !important;
-    }
-}
-
-@include breakpoint(mobile) {
-    .is-visible-mobile {
-        display: inherit !important;
-    }
-    .is-hidden-mobile {
-        display: none !important;
-    }
-}
-
-@include breakpoint(mobile-portrait) {
-    .is-visible-mobile-portrait {
-        display: inherit !important;
-    }
-    .is-hidden-mobile-portrait {
-        display: none !important;
-    }
-}
-
-@include breakpoint(print) {
-    .is-visible-print {
-        display: inherit !important;
-    }
-    .is-hidden-print {
-        display: none !important;
-    }
 }
 
