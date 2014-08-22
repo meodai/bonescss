@@ -9,13 +9,14 @@
 }
 
 /**
- * px2rem turns px values in to REM's base on the base font size
+ * px2rel turns px values in to REM's base on the base font size
  * @param  {[value]} $px Wished font size
  * @param  {[value]} $baseSize Reference Size (usualy HTML/Body font size)
- * @return {[value]} Relative value
+ * @param  {[value]} $unit of the converted value
+ * @return {[value]} Relative value inc. unit
  */
-@function px2rem($px, $baseSize: $s-font-base) {
-	@return ( $px / $baseSize ) * 1rem;
+@function px2rel($px, $baseSize: $s-font-base, $unit: rem) {
+	@return ( $px / $baseSize ) * 1#{unit};
 }
 
 /**
