@@ -7,7 +7,7 @@ SCSS/CSS starting-point for every project. Mixes [smacss](https://smacss.com/) n
 ##Installation
 There are two ways to install it:
 
-1. `@include` the files in your SCSS files
+1. add bower to your scss directories then `bower install bonescss`, then `@include` the individual files in your SCSS files
 2. Or checkout this repository into your SCSS directory and use it as a boilerplate: `git clone https://github.com/meodai/bonescss.git your-scss-directory`
 
 ## _0.settings.scss
