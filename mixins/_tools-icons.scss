@@ -1,21 +1,23 @@
 /*
  * will generate an icon helper class for different sized icons
  * usage:
- *      @include icons("icons", 10 14 16 25)
+ *      @include icons("icons", 32, 10 14 16 25, "px")
+ * can be tested here:
+ *      http://sassmeister.com/gist/bda172ef16a168d99b3d
  */
 
-@mixin icons ($className,$iconSizes: 10 14 16 21 32) {
+@mixin icons ($className: "icon", $defaultSize: 32, $iconSizes: 10 14 16 21 32, $unit: "px") {
     .#{$className} {
         display: inline-block;
         background-size: 100% 100%;
         background-position: center center;
         vertical-align: middle;
-        width: 32px; height: 32px;
+        width: #{$defaultSize}#{$unit}; height: #{$defaultSize}#{$unit};
     }
     @each $size in $iconSizes {
         .#{$className}[class*="--#{$size}"]{
-            width: #{$size}px;
-            height: #{$size}px;
+            width: #{$size}#{$unit};
+            height: #{$size}#{$unit};
         }
     }
 }
