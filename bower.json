@@ -1,6 +1,5 @@
 {
     "name": "bonescss",
-    "version": "0.0.2",
     "main": [
         "mixins/_inline-block-fix.scss",
         "mixins/_prefixRule.scss",
