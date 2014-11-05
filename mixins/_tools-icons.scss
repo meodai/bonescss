@@ -1,0 +1,21 @@
+/*
+ * will generate an icon helper class for different sized icons
+ * usage:
+ *      @include icons("icons", 10 14 16 25)
+ */
+
+@mixin icons ($className,$iconSizes: 10 14 16 21 32) {
+    .#{$className} {
+        display: inline-block;
+        background-size: 100% 100%;
+        background-position: center center;
+        vertical-align: middle;
+        width: 32px; height: 32px;
+    }
+    @each $size in $iconSizes {
+        .#{$className}[class*="--#{$size}"]{
+            width: #{$size}px;
+            height: #{$size}px;
+        }
+    }
+}

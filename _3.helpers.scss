@@ -34,21 +34,3 @@ $text-selectors: "%t-" ".t-" !default;
     top: -9999px;
     left: -9999px;
 }
-
-/* icon helpers */
-.icon {
-    display: inline-block;
-    background-size: 100% 100%;
-    background-position: center center;
-    vertical-align: middle;
-    width: 32px; height: 32px;
-}
-
-$icon-sizes: 10 14 16 21 32;
-
-@each $size in $icon-sizes {
-    .icon[class*="--#{$size}"]{
-        width: #{$size}px;
-        height: #{$size}px;
-    }
-}
