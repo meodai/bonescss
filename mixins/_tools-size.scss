@@ -16,7 +16,7 @@
  * @return {[value]} Relative value inc. unit
  */
 @function px2rel($px, $baseSize: $s-font-base, $unit: rem) {
-	@return ( $px / $baseSize ) * 1#{unit};
+	@return ( $px / $baseSize ) * 1#{$unit};
 }
 
 /**
