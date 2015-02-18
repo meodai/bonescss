@@ -38,7 +38,8 @@ $layout-selectors: "%l-" ".l-" !default;
     list-style: none;
     margin: 0; padding: 0;
     > li {
-        @include inline-block(top);
+        display: inline-block;
+        vertical-align: top;
     }
 }
 
@@ -49,7 +50,8 @@ $layout-selectors: "%l-" ".l-" !default;
 @include prefix-rule( "horizontal", $prefixes: $layout-selectors ) {
     @include inline-block-fix;
     > * {
-        @include inline-block(top);
+        display: inline-block;
+        vertical-align: top;
     }
 }
 
