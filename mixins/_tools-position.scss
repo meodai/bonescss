@@ -8,13 +8,13 @@
   position: absolute;
   @if $direction == both {
     top: 50%; left: 50%;
-    @include transform(translate(-50%, -50%));
+    transform: translate(-50%, -50%);
   } @else if $direction == horizontal {
     left: 50%;
-    @include transform(translateX(-50%));
+    transform: translateX(-50%);
   } @else if $direction == vertical {
     top: 50%;
-    @include transform(translateY(-50%));
+    transform translateY(-50%);
   }
 }
 

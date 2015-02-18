@@ -41,7 +41,7 @@ $state-selectors-and: "&%is-" "&.is-" !default;
  * Generic class to disable buttons and links
  */
 @include prefix-rule( "disabled", $prefixes: $state-selectors ) {
-    @include opacity(0.5);
+    opacity: 0.5;
     pointer-events: none;
 }
 
