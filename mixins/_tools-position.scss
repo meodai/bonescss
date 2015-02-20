@@ -14,7 +14,7 @@
     transform: translateX(-50%);
   } @else if $direction == vertical {
     top: 50%;
-    transform translateY(-50%);
+    transform: translateY(-50%);
   }
 }
 
