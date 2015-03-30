@@ -1,4 +1,13 @@
 /**
+ * strip-unit removes units from values
+ * @param  {[value]} $value with unit
+ * @return {[value]} without unit
+ */
+@function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+/**
  * px2percent calculates the relative with based on two values
  * @param  {[value]} $size
  * @param  {[value]} $contextSize
