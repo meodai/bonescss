@@ -26,11 +26,19 @@ $text-selectors: "%t-" ".t-" !default;
     overflow: hidden;
 }
 
+$form-selectors: "%form-" ".form-" !default;
 
-.js-scrollbar-measure {
-    width: 100px; height: 100px;
-    overflow: scroll;
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
+/*
+ *  will reset buttons styles
+ */
+@include prefix-rule( "reset-button", $prefixes: $form-selectors ) {
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    overflow: visible; // removes padding in IE
+    &::-moz-focus-inner {
+        // removes padding in Firefox
+        border: none;
+        padding: 0;
+    }
 }
