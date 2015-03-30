@@ -56,3 +56,34 @@
 	line-height: ($px);
 	line-height: px2rel($px);
 }
+
+/**
+ * remFallback turns attributes containing rem into there PX fallback
+ * also magically does the opposite (turns attributes containing PX in rem)
+ * examples: http://sassmeister.com/gist/e6bd061088f289c664a9
+ *
+ * @param   {[string]} $attr [description]
+ * @param   {[list]} $vals [description]
+ */
+@mixin remFallback($attr,$vals) {
+  $values: null;
+  $fallback: null;
+
+  @each $val in $vals {
+    @if type-of($val) == number and unit($val) == 'px' {
+      $fallback: append($fallback, $val);
+      $values: append($values, px2rel($val));
+    } @elseif type-of($val) == number and unit($val) == 'rem' {
+      $fallback: append($fallback, rel2px($val));
+      $values: append($values, $val);
+    } @else {
+      $fallback: append($fallback, $val);
+      $values: append($values, $val);
+    }
+  }
+
+  @if $fallback != $values {
+    #{$attr}: $fallback;
+  }
+  #{$attr}: $values;
+}
