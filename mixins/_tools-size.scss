@@ -1,5 +1,6 @@
 /**
  * strip-unit removes units from values
+ * by the bright @HugoGiraudel http://hugogiraudel.com/2013/08/12/sass-functions/
  * @param  {[value]} $value with unit
  * @return {[value]} without unit
  */
@@ -26,6 +27,16 @@
  */
 @function px2rel($px, $baseSize: $s-font-base, $unit: rem) {
 	@return ( $px / $baseSize ) * 1#{$unit};
+}
+
+/**
+ * rel2px converts relative values in to PX values
+ * @param   {[number]} $rel                 relative number to convert
+ * @param   {[number]}   $baseSize            multiplicator
+ * @returns {[number]}                        value in px
+ */
+@function rel2px($rel, $baseSize: $s-font-base) {
+  @return (strip-unit($rel) * strip-unit($baseSize)) + px;
 }
 
 /**
