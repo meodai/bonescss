@@ -1,8 +1,8 @@
 /**
  * strip-unit removes units from values
  * by the bright @HugoGiraudel http://hugogiraudel.com/2013/08/12/sass-functions/
- * @param  {[value]} $value with unit
- * @return {[value]} without unit
+ * @param  {[number]} $value with unit
+ * @return {[number]} without unit
  */
 @function strip-unit($value) {
     @return $value / ($value * 0 + 1);
@@ -10,9 +10,9 @@
 
 /**
  * px2percent calculates the relative with based on two values
- * @param  {[value]} $size
- * @param  {[value]} $contextSize
- * @return {[value in %]}
+ * @param  {[number]} $size
+ * @param  {[number]} $contextSize
+ * @return {[number in %]}
  */
 @function px2percent ($size,$contextSize: $s-design-width) {
 	@return ( $size / $contextSize) * 100%;
@@ -20,10 +20,10 @@
 
 /**
  * px2rel turns px values in to REM's base on the base font size
- * @param  {[value]} $px Wished font size
- * @param  {[value]} $baseSize Reference Size (usualy HTML/Body font size)
- * @param  {[value]} $unit of the converted value
- * @return {[value]} Relative value inc. unit
+ * @param  {[number]} $px Wished font size
+ * @param  {[number]} $baseSize Reference Size (usualy HTML/Body font size)
+ * @param  {[number]} $unit of the converted value
+ * @return {[number]} Relative value inc. unit
  */
 @function px2rel($px, $baseSize: $s-font-base, $unit: rem) {
 	@return ( $px / $baseSize ) * 1#{$unit};
@@ -31,9 +31,9 @@
 
 /**
  * rel2px converts relative values in to PX values
- * @param   {[number]} $rel                 relative number to convert
- * @param   {[number]}   $baseSize            multiplicator
- * @returns {[number]}                        value in px
+ * @param   {[number]} $rel           relative number to convert
+ * @param   {[number]} $baseSize      multiplicator
+ * @returns {[number]}                value in px
  */
 @function rel2px($rel, $baseSize: $s-font-base) {
   @return (strip-unit($rel) * strip-unit($baseSize)) + px;
@@ -41,7 +41,7 @@
 
 /**
  *  font-size REM fallback mixin for legacy browsers
- *  @param  {[value]} $px wished font-size / only use when needed will bloat up your CSS
+ *  @param  {[number]} $px wished font-size / only use when needed will bloat up your CSS
  */
 @mixin font-size($px) {
 	font-size: ($px);
@@ -50,7 +50,7 @@
 
 /**
  *  line-height REM fallback mixin for legacy browsers
- *  @param  {[value]} $px wished line-height
+ *  @param  {[number]} $px wished line-height
  */
 @mixin line-height($px) {
 	line-height: ($px);
