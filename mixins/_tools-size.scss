@@ -19,6 +19,21 @@
 }
 
 /**
+ * isRelative determines if the number is a relative value
+ * @param   {number}  $val
+ * @returns {Boolean}
+ */
+@function isRelative($val) {
+  $relUnits: rem em;
+  @each $unit in $relUnits {
+    @if $unit == unit($val) {
+      @return true;
+    }
+  }
+  @return false;
+}
+
+/**
  * px2rel turns px values in to REM's base on the base font size
  * @param  {[number]} $px Wished font size
  * @param  {[number]} $baseSize Reference Size (usualy HTML/Body font size)
@@ -26,7 +41,15 @@
  * @return {[number]} Relative value inc. unit
  */
 @function px2rel($px, $baseSize: $s-font-base, $unit: rem) {
-	@return ( $px / $baseSize ) * 1#{$unit};
+    $return: null;
+    @each $val in $px {
+      @if type-of($val) == number and unit($val) == 'px' {
+        $return: append($return, ( $val / $baseSize ) * 1#{$unit});
+      } @else {
+        $return: append($return, $val);
+      }
+    }
+    @return $return;
 }
 
 /**
@@ -36,26 +59,17 @@
  * @returns {[number]}                value in px
  */
 @function rel2px($rel, $baseSize: $s-font-base) {
-  @return (strip-unit($rel) * strip-unit($baseSize)) + px;
+  $return: null;
+    @each $val in $rel {
+      @if type-of($val) == number and isRelative($val) {
+        $return: append($return, strip-unit($val) * strip-unit($baseSize) + px);
+      } @else {
+        $return: append($return, $val);
+      }
+    }
+    @return $return;
 }
 
-/**
- *  font-size REM fallback mixin for legacy browsers
- *  @param  {[number]} $px wished font-size / only use when needed will bloat up your CSS
- */
-@mixin font-size($px) {
-	font-size: ($px);
-	font-size: px2rel($px);
-}
-
-/**
- *  line-height REM fallback mixin for legacy browsers
- *  @param  {[number]} $px wished line-height
- */
-@mixin line-height($px) {
-	line-height: ($px);
-	line-height: px2rel($px);
-}
 
 /**
  * remFallback turns attributes containing rem into there PX fallback
@@ -66,21 +80,8 @@
  * @param   {[list]} $vals [description]
  */
 @mixin remFallback($attr,$vals) {
-  $values: null;
-  $fallback: null;
-
-  @each $val in $vals {
-    @if type-of($val) == number and unit($val) == 'px' {
-      $fallback: append($fallback, $val);
-      $values: append($values, px2rel($val));
-    } @elseif type-of($val) == number and unit($val) == 'rem' {
-      $fallback: append($fallback, rel2px($val));
-      $values: append($values, $val);
-    } @else {
-      $fallback: append($fallback, $val);
-      $values: append($values, $val);
-    }
-  }
+  $values: px2rel($vals);
+  $fallback: rel2px($vals);
 
   @if $fallback != $values {
     #{$attr}: $fallback;
