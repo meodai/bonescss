@@ -44,7 +44,7 @@
     $return: null;
     @each $val in $px {
       @if type-of($val) == number and unit($val) == 'px' {
-        $return: append($return, ( $val / $baseSize ) * 1) + #{$unit};
+        $return: append($return, ( $val / $baseSize ) * 1) + $unit;
       } @else {
         $return: append($return, $val);
       }
