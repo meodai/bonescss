@@ -7,22 +7,18 @@ $breakpoints: (
     "tablet"              : "only screen and (max-width:1050px)",
     "desktop"             : "only screen and (min-width:1051px)",
     "print"               : "print"
-);
+) !default;
 
 $sizes: (
-  x-huge      : 70px,
-  huge        : 50px,
-  xx-large    : 40px,
-  x-large     : 30px,
-  large       : 20px,
-  medium      : 16px,
-  small       : 10px,
-  tiny        : 5px
-);
+  huge        : $s-base * 3,
+  large       : $s-base * 1.5,
+  medium      : $s-base,
+  small       : $s-base * .5
+)  !default;
 
 @function s($name: medium) {
   @if map-has-key($sizes, $name) {
-    @return decimal-round( map-get($sizes, $name) / 16px, 3 ) * 1rem;
+    @return map-get($sizes, $name);
   }
 
   @warn "Unknown `#{$name}` in $sizes.";

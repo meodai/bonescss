@@ -7,7 +7,7 @@ $colors: (
   black           : #16161d,
   blue            : #2200cc,
   blue-light      : #b3d4fc
-);
+) !default;
 
 $gradients: (
   light: (
@@ -25,7 +25,7 @@ $gradients: (
     to: #000,
     angle: 135deg
   )
-);
+) !default;
 
 /**
  * Color functions
