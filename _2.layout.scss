@@ -135,45 +135,8 @@ $layout-selectors: "%l-" ".l-" !default;
     > *:first-child {
         float: left;
     }
-
 }
-
-/**
- * a few gutter helperclasses for margins on top and bottom of elements
- */
-@include prefix-rule( "gap" ) {
-    margin-bottom: $s-gutter;
-    &--double {
-        margin-bottom: $s-gutter * 2;
     }
-    &--triple {
-        margin-bottom: $s-gutter * 3;
-    }
-}
-@include prefix-rule( "gap-above" ) {
-    margin-top: $s-gutter;
-    &--double {
-        margin-top: $s-gutter * 2;
-    }
-    &--triple {
-        margin-top: $s-gutter * 3;
-    }
-}
-@include prefix-rule( "no-gap" ) {
-    margin: 0;
-}
-
-/**
- *  islands describe the padding of a box
- */
-@include prefix-rule( "continent", $prefixes: $layout-selectors ) {
-    padding: $s-gutter + ($s-gutter * .5);
-}
-@include prefix-rule( "island", $prefixes: $layout-selectors ) {
-    padding: $s-gutter;
-}
-@include prefix-rule( "islet", $prefixes: $layout-selectors ) {
-    padding: $s-gutter * .5;
 }
 
 /**
