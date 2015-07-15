@@ -1,3 +1,6 @@
+$layout-selectors: "%l-" ".l-" !default;
+$layout-classes: true !default;
+
 /**
  * Clearfix: contain floats
  *
@@ -9,9 +12,7 @@
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-$layout-selectors: "%l-" ".l-" !default;
-
-@include prefix-rule( "clearfix", $prefixes: $layout-selectors ) {
+@mixin clearfix {
     &:before, &:after {
         content: " ";
         display: table;
@@ -20,21 +21,31 @@ $layout-selectors: "%l-" ".l-" !default;
         clear: both;
     }
 }
+@if $layout-classes {
+    @include prefix-rule( "clearfix", $prefixes: $layout-selectors ) {
+        @include clearfix;
+    }
+}
 
 /**
  * Class used to wrap the contents of sections that should have the with of the design
  */
-@include prefix-rule( "site-width", $prefixes: $layout-selectors ) {
+@mixin site-width {
     position: relative;
     margin: 0 auto;
     max-width: $s-design-width;
+}
+@if $layout-classes {
+    @include prefix-rule( "site-width", $prefixes: $layout-selectors ) {
+        @include site-width;
+    }
 }
 
 /**
  * creates a inline list
  * [|---|----|--|-----|      ]
  */
-@include prefix-rule( "horizontal-list", $prefixes: $layout-selectors ) {
+@mixin horizontal-list {
     list-style: none;
     margin: 0; padding: 0;
     > li {
@@ -42,16 +53,26 @@ $layout-selectors: "%l-" ".l-" !default;
         vertical-align: top;
     }
 }
+@if $layout-classes {
+    @include prefix-rule( "horizontal-list", $prefixes: $layout-selectors ) {
+        @include horizontal-list;
+    }
+}
 
 /**
  * set any direct children of the selected element inline
  * [|---|----|--|-----|      ]
  */
-@include prefix-rule( "horizontal", $prefixes: $layout-selectors ) {
+@mixin horizontal {
     @include inline-block-fix;
     > * {
         display: inline-block;
         vertical-align: top;
+    }
+}
+@if $layout-classes {
+    @include prefix-rule( "horizontal", $prefixes: $layout-selectors ) {
+        @include horizontal;
     }
 }
 
@@ -59,7 +80,7 @@ $layout-selectors: "%l-" ".l-" !default;
  * inline list where all direct children have the same width
  * [|-----|-----|-----|-----|]
  */
-@include prefix-rule( "horizontal-samewidth-list", $prefixes: $layout-selectors ) {
+@mixin horizontal-samewidth-list {
     display: table;
     list-style: none;
     margin: 0; padding: 0;
@@ -70,12 +91,17 @@ $layout-selectors: "%l-" ".l-" !default;
         display: table-cell;
     }
 }
+@if $layout-classes {
+    @include prefix-rule( "horizontal-samewidth-list", $prefixes: $layout-selectors ) {
+        @include horizontal-samewidth-list;
+    }
+}
 
 /**
  * used for elements placed next to each other that should be equidistant
  * [|---|   |---|   |---|   |---|]
  */
-@include prefix-rule( "horizontal-equidistant", $prefixes: $layout-selectors ) {
+@mixin horizontal-equidistant {
     text-align: justify;
     font-size: 0.1px; /* IE 9 & 10 don't like font-size: 0; */
     > * {
@@ -88,12 +114,17 @@ $layout-selectors: "%l-" ".l-" !default;
           display: inline-block;
     }
 }
+@if $layout-classes {
+    @include prefix-rule( "horizontal-equidistant", $prefixes: $layout-selectors ) {
+        @include horizontal-equidistant;
+    }
+}
 
 /**
  * used to make table-layouts
  * no documentation for now, read the code :D
  */
-@include prefix-rule( "table", $prefixes: $layout-selectors) {
+@mixin table {
     display: table;
     width: 100%;
     box-sizing: border-box;
@@ -109,10 +140,10 @@ $layout-selectors: "%l-" ".l-" !default;
     }
     */
 }
-@include prefix-rule( "table-row", $prefixes: $layout-selectors) {
+@mixin table-row {
     display: table-row;
 }
-@include prefix-rule( "table-cell", $prefixes: $layout-selectors) {
+@mixin table-cell {
     display: table-cell;
     vertical-align: middle;
     &--max {
@@ -122,13 +153,24 @@ $layout-selectors: "%l-" ".l-" !default;
         width: 1%;
     }
 }
+@if $layout-classes {
+    @include prefix-rule( "table", $prefixes: $layout-selectors) {
+        @include table;
+    }
+    @include prefix-rule( "table-row", $prefixes: $layout-selectors) {
+        @include table-row;
+    }
+    @include prefix-rule( "table-cell", $prefixes: $layout-selectors) {
+        @include table-cell;
+    }
+}
 
 /**
  * places children at the exremities of the parent
  * [|----|                |---|]
  */
-@include prefix-rule( "horizontal-extremities", $prefixes: $layout-selectors ) {
-    @extend #{nth($layout-selectors, 1)}clearfix;
+@mixin horizontal-extremities {
+    @include clearfix;
     > * {
         float: right;
     }
@@ -136,46 +178,67 @@ $layout-selectors: "%l-" ".l-" !default;
         float: left;
     }
 }
+@if $layout-classes {
+    @include prefix-rule( "horizontal-extremities", $prefixes: $layout-selectors ) {
+        @include horizontal-extremities;
     }
 }
 
 /**
  *   entirely fills out a element
  */
-@include prefix-rule( "fill", $prefixes: $layout-selectors ) {
+@mixin fill {
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
 }
-
-/* centers with complicated table layout */
-@include prefix-rule( "centered", $prefixes: $layout-selectors ) {
-
+@if $layout-classes {
+    @include prefix-rule( "fill", $prefixes: $layout-selectors ) {
+        @include fill;
+    }
 }
 
-@include prefix-rule( "centered-container", $prefixes: $layout-selectors ) {
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
+/* centers with table layout and makes sure overflow is reachable when to high */
+@if $layout-classes {
+    @include prefix-rule( "centered", $prefixes: $layout-selectors ) {
+
+    }
+}
+
+@mixin centered-container {
+    @include fill;
     overflow: auto;
 }
-
-@include prefix-rule( "centered-inner", $prefixes: $layout-selectors) {
+@mixin centered-inner {
     display: table;
     vertical-align: middle;
     text-align: center;
     height: 100%; width: 100%;
 }
-
-@include prefix-rule( "centered-content", $prefixes: $layout-selectors) {
+@mixin centered-content {
     display: table-cell;
     vertical-align: middle;
 }
-@include prefix-rule( "centered-body", $prefixes: $layout-selectors) {
+@mixin centered-body {
     position: relative;
     display: inline-block;
     max-width: 90%;
     text-align: left;
 }
 
+@if $layout-classes {
+    @include prefix-rule( "centered-container", $prefixes: $layout-selectors ) {
+        @include centered-container;
+    }
+    @include prefix-rule( "centered-inner", $prefixes: $layout-selectors) {
+        @include centered-inner;
+    }
+    @include prefix-rule( "centered-content", $prefixes: $layout-selectors) {
+        @include centered-content;
+    }
+    @include prefix-rule( "centered-body", $prefixes: $layout-selectors) {
+        @include centered-body;
+    }
+}
 
 /**
  * Consider adding sensible grid for grid and responsiveness

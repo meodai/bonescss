@@ -1,37 +1,50 @@
 $text-selectors: "%t-" ".t-" !default;
+$helper-classes: true !default;
 
-@include prefix-rule( "selectable", $prefixes: $text-selectors ) {
-    user-select: text;
-}
+@if $helper-classes {
+    @include prefix-rule( "selectable", $prefixes: $text-selectors ) {
+        user-select: text;
+    }
 
-@include prefix-rule( "not-selectable", $prefixes: $text-selectors ) {
-    user-select: none;
+    @include prefix-rule( "not-selectable", $prefixes: $text-selectors ) {
+        user-select: none;
+    }
 }
 
 /**
  * http://stackoverflow.com/questions/11459746/css3-webfont-smoothing-and-antialiasing-in-firefox-and-opera
  */
-@include prefix-rule( "antialiased", $prefixes: $text-selectors ) {
+@mixin antialiased {
     -webkit-font-smooting: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+@if $helper-classes {
+    @include prefix-rule( "antialiased", $prefixes: $text-selectors ) {
+        @include antialiased;
+    }
 }
 
 /*
  *  will trucate text needs a fixed width
  *  http://css-tricks.com/snippets/css/truncate-string-with-ellipsis/
  */
-@include prefix-rule( "truncate", $prefixes: $text-selectors ) {
+@mixin truncate {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
 }
+@if $helper-classes {
+    @include prefix-rule( "truncate", $prefixes: $text-selectors ) {
+        @include truncate;
+    }
+}
 
 $form-selectors: "%form-" ".form-" !default;
-
+$form-classes: true !default;
 /*
  *  will reset buttons styles
  */
-@include prefix-rule( "reset-button", $prefixes: $form-selectors ) {
+@mixin reset-button {
     border: none;
     padding: 0;
     cursor: pointer;
@@ -40,5 +53,10 @@ $form-selectors: "%form-" ".form-" !default;
         // removes padding in Firefox
         border: none;
         padding: 0;
+    }
+}
+@if $helper-classes {
+    @include prefix-rule( "reset-button", $prefixes: $form-selectors ) {
+        @include reset-button;
     }
 }
