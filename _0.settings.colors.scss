@@ -1,0 +1,58 @@
+/**
+ * Color variables
+ */
+$colors: (
+  white           : #fff,
+  grey            : #999,
+  black           : #16161d,
+  blue            : #2200cc,
+  blue-light      : #b3d4fc
+);
+
+$gradients: (
+  light: (
+    from: white,
+    to: grey,
+    angle: 135deg
+  ),
+  normal: (
+    from: grey,
+    to: #ddd,
+    angle: 135deg
+  ),
+  dark: (
+    from: black,
+    to: #000,
+    angle: 135deg
+  )
+);
+
+/**
+ * Color functions
+ */
+@function c($name) {
+  @if map-has-key($colors, $name) {
+    @return map-get($colors, $name);
+  }
+  @warn 'no color named #{$name} in $colors';
+  @return null;
+}
+
+@function gradient($name) {
+  $gradient: map-get($gradients, $name);
+  $from: map-get($gradient, 'from');
+  $to: map-get($gradient, 'to');
+  $angle: map-get($gradient, 'angle');
+
+  @if (map-has-key($colors, $from)) {
+    $from: c($from);
+  }
+
+  @if (map-has-key($colors, $to)) {
+    $to: c($to);
+  }
+
+  @return linear-gradient(#{$angle}, #{$from}, #{$to})
+}
+
+

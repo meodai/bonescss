@@ -1,0 +1,30 @@
+$s-design-width: 1024px !default;
+$s-golden: 1.61803398875 !default;
+$s-base: 1rem !default;
+
+$breakpoints: (
+    "mobile"              : "only screen and (max-width:740px)",
+    "tablet"              : "only screen and (max-width:1050px)",
+    "desktop"             : "only screen and (min-width:1051px)",
+    "print"               : "print"
+);
+
+$sizes: (
+  x-huge      : 70px,
+  huge        : 50px,
+  xx-large    : 40px,
+  x-large     : 30px,
+  large       : 20px,
+  medium      : 16px,
+  small       : 10px,
+  tiny        : 5px
+);
+
+@function s($name: medium) {
+  @if map-has-key($sizes, $name) {
+    @return decimal-round( map-get($sizes, $name) / 16px, 3 ) * 1rem;
+  }
+
+  @warn "Unknown `#{$name}` in $sizes.";
+  @return null;
+}

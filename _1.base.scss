@@ -3,7 +3,8 @@
  */
 html {
     min-height:100%;
-    font:#{($s-font-base/16px)*1em}/#{$s-font-line-height-base} $t-font-family;;
+    font: $t-default-font-family/#{$t-default-line-height} $t-default-font-family;
+    color: c(black);
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     overflow-y:scroll;
@@ -11,7 +12,6 @@ html {
 html, body, .l-body {
     min-height:100%;
 }
-
 strong {
     font-weight: 400;
 }
@@ -22,12 +22,12 @@ strong {
  * Customize the background color to match your design.
  */
 ::-moz-selection {
-    background: #b3d4fc;
+    background: c(blue-light);
     text-shadow: none;
 }
 
 ::selection {
-    background: #b3d4fc;
+    background: c(blue-light);
     text-shadow: none;
 }
 

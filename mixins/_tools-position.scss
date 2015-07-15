@@ -29,7 +29,7 @@
  * @degres {[degrees]} in deg
  * @degres {[radius]} in whatever unit
 **/
-@mixin translate-point-from-circle-centre($degres, $radius: $s-gutter) {
+@mixin translate-point-from-circle-centre($degres, $radius: $s-base) {
   $x-value: circle-x($radius, $degree);
   $y-value: circle-y($radius, $degree);
   transform: translate($x-value, -$y-value);

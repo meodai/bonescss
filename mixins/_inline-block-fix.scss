@@ -1,6 +1,6 @@
-$s-font-base: 16px !default;
+$t-default-font-size: 16px !default;
 
-@mixin inline-block-fix($s: $s-font-base){
+@mixin inline-block-fix($s: $t-default-font-size){
 	font-size: 0.1px;
 	> * {
 		font-size: $s;

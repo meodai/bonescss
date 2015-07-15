@@ -106,7 +106,7 @@ $layout-classes: true !default;
     font-size: 0.1px; /* IE 9 & 10 don't like font-size: 0; */
     > * {
         display: inline-block;
-        font-size: $s-font-base;
+        font-size: $t-default-font-size;
     }
     &:after {
           content: '';
@@ -130,12 +130,12 @@ $layout-classes: true !default;
     box-sizing: border-box;
     /*
     &--gapped {
-        margin-bottom: -$s-gutter;
+        margin-bottom: -$s-base;
         @include prefix-rule( "table-cell", $prefixes: $layout-selectors) {
-            padding-bottom: $s-gutter;
+            padding-bottom: $s-base;
         }
         .l-table-cell + .l-table-cell {
-            padding-left: $s-gutter;
+            padding-left: $s-base;
         }
     }
     */
