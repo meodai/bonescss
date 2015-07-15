@@ -54,12 +54,6 @@ Used for tablelayouts. Because yes sometimes I use them.
 ### .l-horizontal-extremities
 Floats all children right and the first one left. Also extends `.l-clerfix`.
 
-### .l-gap, .l-gap-above, .l-no-gap
-Creates a margin of the size of $s-gutter below or above the selected element. Comes with modifiers `--double` and `--tripple`. `.l-no-gap` removes all margins
-
-### .l-continent, .l-island, .l-islet
-Makes a Box with different paddings where continent has the largest and islet has the smallest padding based on `$s-gutter`.
-
 ### .l-fill
 Uses `position:absolute` and fills its context.
 
