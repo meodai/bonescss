@@ -1,0 +1,46 @@
+@mixin visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+@mixin visuallyhidden-focusable {
+    &:active, &:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto;
+    }
+}
+
+/*
+ * Generic class to disable buttons and links
+ */
+@mixin disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/*
+ * Hide visually and from screen readers: h5bp.com/u
+ */
+@mixin hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/**
+ * Used to show elements
+ * will be set to inherit by default, but can be block inline or inline-block as well,
+ * just use the modifiers
+ */
+@mixin visible {
+    display: inherit !important;
+    visibility: visible;
+}
