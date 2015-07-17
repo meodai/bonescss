@@ -5,26 +5,6 @@ $state-selectors: "%is-" ".is-" !default;
 $state-selectors-and: "&%is-" "&.is-" !default;
 $state-classes: true !default;
 
-@mixin visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-}
-@mixin visuallyhidden-focusable {
-    &:active, &:focus {
-        clip: auto;
-        height: auto;
-        margin: 0;
-        overflow: visible;
-        position: static;
-        width: auto;
-    }
-}
 
 @if $state-classes {
     @include prefix-rule( "visuallyhidden", $prefixes: $state-selectors ) {
@@ -48,13 +28,6 @@ $state-classes: true !default;
     }
 }
 
-/*
- * Generic class to disable buttons and links
- */
-@mixin disabled {
-    opacity: 0.5;
-    pointer-events: none;
-}
 @if $state-classes {
     @include prefix-rule( "disabled", $prefixes: $state-selectors ) {
         @include disabled;
