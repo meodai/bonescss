@@ -9,15 +9,11 @@ $helper-classes: true !default;
     @include prefix-rule( "not-selectable", $prefixes: $text-selectors ) {
         user-select: none;
     }
-}
 
-@if $helper-classes {
     @include prefix-rule( "antialiased", $prefixes: $text-selectors ) {
         @include antialiased;
     }
-}
 
-@if $helper-classes {
     @include prefix-rule( "truncate", $prefixes: $text-selectors ) {
         @include truncate;
     }
@@ -26,7 +22,7 @@ $helper-classes: true !default;
 $form-selectors: "%form-" ".form-" !default;
 $form-classes: true !default;
 
-@if $helper-classes {
+@if $form-classes {
     @include prefix-rule( "reset-button", $prefixes: $form-selectors ) {
         @include reset-button;
     }

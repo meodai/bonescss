@@ -17,46 +17,22 @@ $state-classes: true !default;
             @include visuallyhidden-focusable;
         }
     }
-}
 
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-@if $state-classes {
+    /*
+     * Hide visually and from screen readers, but maintain layout
+     */
     @include prefix-rule( "invisible", $prefixes: $state-selectors ) {
         visibility: hidden;
     }
-}
 
-@if $state-classes {
     @include prefix-rule( "disabled", $prefixes: $state-selectors ) {
         @include disabled;
     }
-}
 
-/*
- * Hide visually and from screen readers: h5bp.com/u
- */
-@mixin hidden {
-    display: none !important;
-    visibility: hidden;
-}
-@if $state-classes {
     @include prefix-rule( "hidden", $prefixes: $state-selectors ) {
         @include hidden;
     }
-}
 
-/**
- * Used to show elements
- * will be set to inherit by default, but can be block inline or inline-block as well,
- * just use the modifiers
- */
-@mixin visible {
-    display: inherit !important;
-    visibility: visible;
-}
-@if $state-classes {
     @include prefix-rule( "visible", $prefixes: $state-selectors ) {
         @include visible;
         &--block {
@@ -69,10 +45,8 @@ $state-classes: true !default;
             display: inline-block !important;
         }
     }
-}
 
-/* generic loading class */
-@if $state-classes {
+    /* generic loading class */
     @include prefix-rule( "loading", $prefixes: $state-selectors ) {
         pointer-events: none;
         opacity: 0.5;

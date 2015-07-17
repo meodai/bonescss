@@ -5,39 +5,27 @@ $layout-classes: true !default;
     @include prefix-rule( "clearfix", $prefixes: $layout-selectors ) {
         @include clearfix;
     }
-}
 
-@if $layout-classes {
     @include prefix-rule( "site-width", $prefixes: $layout-selectors ) {
         @include site-width;
     }
-}
 
-@if $layout-classes {
     @include prefix-rule( "horizontal-list", $prefixes: $layout-selectors ) {
         @include horizontal-list;
     }
-}
 
-@if $layout-classes {
     @include prefix-rule( "horizontal", $prefixes: $layout-selectors ) {
         @include horizontal;
     }
-}
 
-@if $layout-classes {
     @include prefix-rule( "horizontal-samewidth-list", $prefixes: $layout-selectors ) {
         @include horizontal-samewidth-list;
     }
-}
 
-@if $layout-classes {
     @include prefix-rule( "horizontal-equidistant", $prefixes: $layout-selectors ) {
         @include horizontal-equidistant;
     }
-}
 
-@if $layout-classes {
     @include prefix-rule( "table", $prefixes: $layout-selectors) {
         @include table;
     }
@@ -47,28 +35,20 @@ $layout-classes: true !default;
     @include prefix-rule( "table-cell", $prefixes: $layout-selectors) {
         @include table-cell;
     }
-}
 
-@if $layout-classes {
     @include prefix-rule( "horizontal-extremities", $prefixes: $layout-selectors ) {
         @include horizontal-extremities;
     }
-}
 
-@if $layout-classes {
     @include prefix-rule( "fill", $prefixes: $layout-selectors ) {
         @include fill;
     }
-}
 
-/* centers with table layout and makes sure overflow is reachable when to high */
-@if $layout-classes {
+    /* centers with table layout and makes sure overflow is reachable when to high */
     @include prefix-rule( "centered", $prefixes: $layout-selectors ) {
 
     }
-}
 
-@if $layout-classes {
     @include prefix-rule( "centered-container", $prefixes: $layout-selectors ) {
         @include centered-container;
     }
