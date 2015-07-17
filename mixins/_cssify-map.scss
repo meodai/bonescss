@@ -1,4 +1,4 @@
-@mixin print($declarations) {
+@mixin cssify-map($declarations) {
   @each $property, $value in $declarations {
     #{$property}: $value
   }

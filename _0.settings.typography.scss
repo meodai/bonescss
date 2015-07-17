@@ -48,7 +48,7 @@ $types: (
 
 @mixin t($name: default) {
   @if map-has-key($types, $name) {
-    @include print(map-get($types, $name));
+    @include cssify-map(map-get($types, $name));
   } @else {
     @warn 'no type named `#{$types}` in $types';
   }
