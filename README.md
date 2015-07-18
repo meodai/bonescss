@@ -10,23 +10,74 @@ There are two ways to install it:
 1. add bower to your scss directories then `bower install bonescss`, then `@include` the individual files in your SCSS files
 2. Or checkout this repository into your SCSS directory and use it as a boilerplate: `git clone https://github.com/meodai/bonescss.git your-scss-directory`
 
-## _0.settings.scss
-### $s-font-base
-Used as base font size for all the size mixins and functions. Usually set to the body font size.
+##Usage
+There are two main ways to integrate bonscss into your project.
 
-### $s-design-width
-The with of your app or website. Is used in some size helpers.
+1. Using only the mixins on your own classes.
+	-  all you have to include is `0.setting` and `mixins`
+	-  adapt the differet `0.setting`'s file to your project.
+2. Use it in as boilerplate with placeholder selectors or classes.
+	- include and adapt `main.scss`
+	- adapt the differet `0.setting`'s file to your project.
 
-### $s-golden
-1.61803398875 because designers love to use this ratio ;)
+##Settings
 
-### $s-gutter
-the default gutter for gaps and grids
+### 0.settings
+- **$boilerplate-mode** [true]
+	will generate ready to use placeholder selectors that can be used with extend and/or regular classes for each helper depending on the `$xxx-selector` config
 
-## _1.base.scss
+- **$layout-selectors** ["%l-" ".l-"], **$text-selectors** ["%t-" ".t-"] etc...
+	will prefix you classes and placeholders with smacssy names just remove the `l-`, `t-` etc. if you don't want this
+
+### 0.settings.colors
+- **$colors** (map)
+	a map containing your named colors.
+
+- **c** (function)
+	helper function to use the colors: `c(blue)`
+
+- **$gradients** (map)
+	contains only linear gradients for now
+
+- **gradient** (function)
+	usage: `background: gradient(dark);`
+
+### 0.settings.sizes
+- **$s-base**
+	should be the most important size in your app/website design. Usually 1rem/16px, depending on the design. Used for gaps and grids, Try to express every size with this number later on. Its mandatory though.
+
+- **$s-design-width** [1024]
+	sets the default max-with of your website. Used in some helper classes
+
+- **$s-golden** [1.61803398875]
+	golden radio, just because
+
+- **$sizes** (map)
+	a place to maintain and name your spaces
+
+- **s** (function)
+	usage: `s(small)` returns a space by name from $sizes
+
+- **$breakpoints** (map)
+	contains the breakpoints of the project
+
+### 0.settings.typo
+- **$t-default-font-size** [$s-base]
+	Used as base font size for all the size mixins and functions. Usually set to the body font size.
+
+- **$t-default-font-...**
+	Sets the defaults for the most common font on the app
+
+- **$types** (map)
+	a list of all your typographical elements, only add attributes that are different from the default
+
+- **t** (function)
+	`@include t(title)` render all the CSS attributes your titles needs
+
+## 1.base
 Contains the part H5BP's main.css before [`Author's custom styles`](https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css)
 
-## _2.layout.scss
+## 2.layout
 All rules inslide this file are prefixed with `.l-` and `%l-` but you can overwrite this variable `$layout-selectors: "%l-" ".l-";`
 
 ### .l-clearfix
@@ -69,7 +120,7 @@ in order to Make it work you have to use the following DOM structure:
 
 If you don't need to support uncool browser is suggest you use the mixin `absolute-center()`.
 
-## _3.helpers.scss
+## 3.helpers
 The helpers are mostly text helpers. This is why the rules are prefixed with `%t-` and `.t-`, this can be changed by overwriting: `$text-selectors: "%t-" ".t-";`
 
 ### .t-selectable, .t-not-selectable
@@ -83,10 +134,10 @@ Will set `user-select: none;` or `user-select: text;`.
 ### .t-truncate
 Will [trucate text](http://css-tricks.com/snippets/css/truncate-string-with-ellipsis/) using overflow ellipsis. Does need a fixed width.
 
-## _4.print.scss
+## 4.print
 The print part from H5BP [main.css](https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L203)
 
-## _5.states.scss
+## 5.states
 In SMACSS states are prefixed with `.is-` but here as well you can modify this with:
 
 	$state-selectors: "%is-" ".is-";
