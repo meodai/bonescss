@@ -11,11 +11,11 @@ $layout-classes: true !default;
     }
 
     @include prefix-rule( "horizontal-list", $prefixes: $layout-selectors ) {
-        @include horizontal-list;
+        @include horizontal;
     }
 
     @include prefix-rule( "horizontal", $prefixes: $layout-selectors ) {
-        @include horizontal;
+        @include horizontal($childSelector: '*');
     }
 
     @include prefix-rule( "horizontal-samewidth-list", $prefixes: $layout-selectors ) {

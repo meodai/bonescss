@@ -28,28 +28,71 @@
     max-width: $s-design-width;
 }
 
-/**
- * creates a inline list
- * [|---|----|--|-----|      ]
- */
-@mixin horizontal-list {
-    list-style: none;
-    margin: 0; padding: 0;
-    > li {
-        display: inline-block;
-        vertical-align: top;
-    }
-}
+$horizontal-list-types: (
+    inline: (
+        parent: (),
+        child: (
+            display: inline-block
+        )
+    ),
+    samewidth: (
+        parent: (
+            display: table,
+            width: 100%,
+            table-layout: fixed
+        ),
+        child: (
+            height: 100%,
+            display: table-cell
+        )
+    ),
+    equidistant: (
+        parent: (
+            text-align: justify,
+            font-size: 0.001px // IE 9 & 10 don't like font-size: 0;
+        ),
+        child: (
+            display: inline-block,
+            font-size: $t-default-font-size
+        )
+    )
+);
 
 /**
- * set any direct children of the selected element inline
- * [|---|----|--|-----|      ]
+ * creates a inline list
+ *
+ * types:
+ *      inline:         [|---|----|--|-----|      ]
+ *
+ *      samewidth:      [|-----|-----|-----|-----|]
+ *                      all direct children have the same width
+ *
+ *      equidistant:    [|---|   |---|   |---|   |---|]
+ *                      space between children has the same with
+ *
+ * legend:
+ *      list/wrap:      [  ]
+ *      list-item/chil: |--|
  */
-@mixin horizontal {
-    @include inline-block-fix;
-    > * {
-        display: inline-block;
-        vertical-align: top;
+
+@mixin horizontal($childSelector: li, $vAlign: top, $type: inline) {
+    $horizontal-list-type: map-get($horizontal-list-types, $type);
+    @include cssify-map(map-get($horizontal-list-type, parent));
+
+    list-style: none;
+    margin: 0; padding: 0;
+
+    > #{$childSelector} {
+        @include cssify-map(map-get($horizontal-list-type, child));
+        vertical-align: #{$vAlign};
+    }
+
+    @if type == equidistant {
+        &:after {
+          content: '';
+          width: 100%; // Ensures there are at least 2 lines of text, so justification works
+          display: inline-block;
+        }
     }
 }
 
@@ -58,15 +101,7 @@
  * [|-----|-----|-----|-----|]
  */
 @mixin horizontal-samewidth-list {
-    display: table;
-    list-style: none;
-    margin: 0; padding: 0;
-    width: 100%;
-    table-layout: fixed;
-    > li {
-        height: 100%;
-        display: table-cell;
-    }
+    @include horizontal($type: samewidth);
 }
 
 /**
@@ -74,17 +109,7 @@
  * [|---|   |---|   |---|   |---|]
  */
 @mixin horizontal-equidistant {
-    text-align: justify;
-    font-size: 0.1px; /* IE 9 & 10 don't like font-size: 0; */
-    > * {
-        display: inline-block;
-        font-size: $t-default-font-size;
-    }
-    &:after {
-          content: '';
-          width: 100%; /* Ensures there are at least 2 lines of text, so justification works */
-          display: inline-block;
-    }
+    @include horizontal($childSelector: '*', $type: equidistant);
 }
 
 /**
