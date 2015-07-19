@@ -36,7 +36,7 @@
     $return: null;
     @each $val in $px {
       @if type-of($val) == number and unit($val) == 'px' {
-        $return: append($return, ( $val / $baseSize )// 1) + $unit;
+        $return: append($return, ( $val / $baseSize ) * 1) + $unit;
       } @else {
         $return: append($return, $val);
       }
@@ -52,7 +52,7 @@
   $return: null;
     @each $val in $rel {
       @if type-of($val) == number and isRelative($val) {
-        $return: append($return, strip-unit($val)// strip-unit($baseSize) + px);
+        $return: append($return, strip-unit($val) * strip-unit($baseSize) + px);
       } @else {
         $return: append($return, $val);
       }
