@@ -122,16 +122,15 @@ All rules inslide this file are prefixed with `.l-` and `%l-` but you can overwr
 ## 3.helpers
 The helpers are mostly text helpers. This is why the rules are prefixed with `%t-` and `.t-`, this can be changed by overwriting: `$text-selectors: "%t-" ".t-";`
 
-### .t-selectable, .t-not-selectable
-Will set `user-select: none;` or `user-select: text;`.
+- **.t-selectable, .t-not-selectable**
+	Will set `user-select: none;` or `user-select: text;`.
 
-### [.t-antialiased](http://stackoverflow.com/questions/11459746/css3-webfont-smoothing-and-antialiasing-in-firefox-and-opera)
-
+- **[.t-antialiased](http://stackoverflow.com/questions/11459746/css3-webfont-smoothing-and-antialiasing-in-firefox-and-opera)** (@mixin antialiased)
 	-webkit-font-smooting: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-### .t-truncate
-Will [trucate text](http://css-tricks.com/snippets/css/truncate-string-with-ellipsis/) using overflow ellipsis. Does need a fixed width.
+- .t-truncate (@mixin truncate)
+	Will [trucate text](http://css-tricks.com/snippets/css/truncate-string-with-ellipsis/) using overflow ellipsis.
 
 ## 4.print
 The print part from H5BP [main.css](https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L203)
@@ -142,23 +141,23 @@ In SMACSS states are prefixed with `.is-` but here as well you can modify this w
 	$state-selectors: "%is-" ".is-";
 	$state-selectors-and: "&%is-" "&.is-";
 
-### .is-visuallyhidden & .is-visuallyhidden-focusable
-Hide only visually, but have it available for screen readers. [H5BP](h5bp.com/v)
+- **.is-visuallyhidden** & **.is-visuallyhidden-focusable** (@mixin visuallyhidden, @mixin visuallyhidden-focusable)
+	Hide only visually, but have it available for screen readers. [H5BP](h5bp.com/v)
 
-### .is-invisible
-Hide visually and from screen readers, but maintain layout
+- **.is-invisible**
+	Hide visually and from screen readers, but maintain layout
 
-### .is-disabled
-Generic class to make any element disabled by removing pointer events and lower the opacity
+- **.is-disabled** (@mixin disabled)
+	Generic class to make any element disabled by removing pointer events and lower the opacity
 
-### .is-hidden
-Hide visually and from screen readers: [H5BP](h5bp.com/u)
+- **.is-hidden** (@mixin hidden)
+	Hide visually and from screen readers: [H5BP](h5bp.com/u)
 
-### .is-visible
-Used to show elements. Will set to inherit by default, but can be block inline or inline-block as well just use the modifiers `--block`, `--inline` or `--inline-block`.
+- **.is-visible** (@mixin visible)
+	Used to show elements. Will set to inherit by default, but can be block inline or inline-block as well just use the modifiers `--block`, `--inline` or `--inline-block`.
 
-### .is-loading
-Generic loading class. Will make elements with this class pulsate.
+- **.is-loading**
+	Generic loading class. Will make elements with this class pulsate.
 
 ## _mixins.scss
 Includes all the mixins and functions
