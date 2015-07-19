@@ -80,45 +80,44 @@ Contains the part H5BP's main.css before [`Author's custom styles`](https://gith
 ## 2.layout
 All rules inslide this file are prefixed with `.l-` and `%l-` but you can overwrite this variable `$layout-selectors: "%l-" ".l-";`
 
-### .l-clearfix
-h5bp's [cleafix](https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L171)
+- **.l-clearfix** (@mixin cleafix)
+    h5bp's [cleafix](https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L171)
 
-### .l-size-width
-Used as a class for containers. Sets the with of the design and centers it. (Also set it to position relative)
+- **.l-size-width** (@mixin site-widh)
+	Used as a class for containers. Sets the with of the design and centers it. (Also set it to position relative)
 
-### .l-horizontal-list
-Makes a `UL` or `OL` list display horizontally
+- **.l-horizontal-list** (@mixin horizontal)
+	Makes a `UL` or `OL` list display horizontally
 
-### .l-horizontal
-Does the same then `.l-horizontal-list` but for every element.
+- **.l-horizontal** (@mixin horizontal($childSelector: '*'))
+	Does the same then `.l-horizontal-list` but for every element.
 
-### .l-horizontal-samewidth-list
-Uses table layout to make a list that is horizontal where the total with of the list is divided by the number of children.
+- **.l-horizontal-samewidth-list** (@mixin horizontal($type: samewidth))
+	Uses table layout to make a list that is horizontal where the total with of the list is divided by the number of children.
 
-### .l-horizontal-equidistant
-Every element inside this container will have equal distances in between.
+- **.l-horizontal-equidistant (@mixin horizontal($type: equidistant, $childSelector: '*'))**
+	Every element inside this container will have equal distances in between.
 
-### .l-table, .l-table-row, .l-table-cell
-Used for tablelayouts. Because yes sometimes I use them.
-`.l-table-cell` comes with a modifier `.l-table-cell--max` and `.l-table-cell--min`. `.l-table-cell--min` Is always as wide as its contents. and `.l-table-cell--max` as wide as possible inside the table layout.
+- **.l-table, .l-table-row, .l-table-cell** (@mixin table, table-row, table-cell)
+	Used for tablelayouts. Because yes sometimes I use them.
+    `.l-table-cell` comes with a modifier `.l-table-cell--max` and `.l-table-cell--min`. `.l-table-cell--min` Is always as wide as its contents. and `.l-table-cell--max` as wide as possible inside the table layout.
 
-### .l-horizontal-extremities
-Floats all children right and the first one left. Also extends `.l-clerfix`.
+- **.l-horizontal-extremities** (@mixin horizontal-extremities)
+	Floats all children right and the first one left. Also extends `.l-clerfix`.
 
-### .l-fill
-Uses `position:absolute` and fills its context.
+- **.l-fill** (@mixin fill)
+	Uses `position:absolute` and fills its context.
 
-### .l-centered
-Used for a CSS only modal-box. Will always be centered, scrollable and will have the size of its content. Works in all cool browsers and IE8+.
-in order to Make it work you have to use the following DOM structure:
+- **.l-centered**
+	Used for a CSS only modal-box. Will always be centered, scrollable and will have the size of its content. Works in all cool browsers and IE8+. in order to Make it work you have to use the following DOM structure:
 
-- centered
-	- centered-container
-		- centered-inner
-			- centered-content
-				- centered-body
+	- centered
+		- centered-container
+			- centered-inner
+				- centered-content
+					- centered-body
 
-If you don't need to support uncool browser is suggest you use the mixin `absolute-center()`.
+	If you don't need to support uncool browser is suggest you use the mixin `absolute-center()`.
 
 ## 3.helpers
 The helpers are mostly text helpers. This is why the rules are prefixed with `%t-` and `.t-`, this can be changed by overwriting: `$text-selectors: "%t-" ".t-";`
