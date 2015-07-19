@@ -1,6 +1,3 @@
-/*
- * Hide only visually, but have it available for screen readers: h5bp.com/v
- */
 $state-selectors: "%is-" ".is-" !default;
 $state-selectors-and: "&%is-" "&.is-" !default;
 $state-classes: true !default;
@@ -10,8 +7,6 @@ $state-classes: true !default;
     @include prefix-rule( "visuallyhidden", $prefixes: $state-selectors ) {
         @include visuallyhidden;
 
-        // Extends the .visuallyhidden class to allow the element to be focusable
-        // when navigated to via the keyboard: h5bp.com/p
         @include prefix-rule( "focusable", $prefixes: $state-selectors-and ) {
             @include visuallyhidden-focusable;
         }

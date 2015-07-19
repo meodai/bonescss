@@ -1,3 +1,4 @@
+// Hide only visually, but have it available for screen readers: h5bp.com/v
 @mixin visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);
@@ -8,6 +9,9 @@
     position: absolute;
     width: 1px;
 }
+
+// Extends the .visuallyhidden class to allow the element to be focusable
+// when navigated to via the keyboard: h5bp.com/p
 @mixin visuallyhidden-focusable {
     &:active, &:focus {
         clip: auto;
