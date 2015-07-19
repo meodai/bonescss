@@ -162,37 +162,35 @@ In SMACSS states are prefixed with `.is-` but here as well you can modify this w
 ## _mixins.scss
 Includes all the mixins and functions
 
-### tools-size.scss
+### Size / Metrics
 
-#### px2percent ($size,$contextSize)
-Converts any size into percents. If in some PSD file your design is 1024px wide and some sidebar in this design has a width of 300px you would use the function like this:
-`width: px2percent(300px,1024px)`
+- **@mixin px2percent ($size,$contextSize)**
+	Converts any size into percents. If in some PSD file your design is 1024px wide and some sidebar in this design has a width of 300px you would use the function like this:
+	`width: px2percent(300px,1024px)`
 
-#### px2rel($px, $baseSize, $unit)
-Will convert any pixel unit to a relative unit. Usually used to convert font-sizes.
-If for example your `h1` should have a font-size of 40px and your base font-size is 16px. The function would be used as such: `font-size: px2rel(40px, 16px)`
-The defult unit will be `rem` you can set it to something else (like EM) by using the third argument. If you set $s-font-base in your options somewhere you don't have to pass the second argument.
+- **@mixin px2rel($px, $baseSize, $unit)**
+	Will convert any pixel unit to a relative unit. Usually used to convert font-sizes.
+	If for example your `h1` should have a font-size of 40px and your base font-size is 16px. The function would be used as such: `font-size: px2rel(40px, 16px)`
+	The defult unit will be `rem` you can set it to something else (like EM) by using the third argument. If you set $s-font-base in your options somewhere you don't have to pass the second argument.
 
-#### font-size($px)
-Sets a font size with a PX fallback for oldbrowsers
-`font-size: font-size(16px)`
-will result in
-
+- **@mixin font-size($px)**
+	Sets a font size with a PX fallback for oldbrowsers
+    `font-size: font-size(16px)`
+	will result in
+	```
 	font-size: 16px;
 	font-size: 1rem:
+	```
 
-#### line-height($px)
-Set a line-height with a PX fallback exacly as the font-size function
+- **line-height($px)**
+	Set a line-height with a PX fallback exacly as the font-size function
 
+### Shapes
+- **triangle( $height, $color, $direction, $width )**
+	Creates a CSS triagnle using the [border trick.](http://css-tricks.com/snippets/css/css-triangle/) if `$width` is not set it will be the same as the height.
 
-###tools-shape.scss
-
-#### triangle( $height, $color, $direction, $width )
-Creates a CSS triagnle using the [border trick.](http://css-tricks.com/snippets/css/css-triangle/) if `$width` is not set it will be the same as the height.
-
-#### circle( $size, $color )
-Make a circle of a given color using border radius
-
+- **circle( $size, $color )**
+	Make a circle of a given color using border radius
 
 ## Contributors
 
