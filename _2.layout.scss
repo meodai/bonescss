@@ -19,11 +19,11 @@ $layout-classes: true !default;
     }
 
     @include prefix-rule( "horizontal-samewidth-list", $prefixes: $layout-selectors ) {
-        @include horizontal-samewidth-list;
+        @include horizontal($type: samewidth);
     }
 
     @include prefix-rule( "horizontal-equidistant", $prefixes: $layout-selectors ) {
-        @include horizontal-equidistant;
+        @include horizontal($type: equidistant, $childSelector: '*');
     }
 
     @include prefix-rule( "table", $prefixes: $layout-selectors) {
