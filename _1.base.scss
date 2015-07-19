@@ -1,6 +1,4 @@
-/**
- * Don't include that just use it as a starting point
- */
+// Don't include that just use it as a starting point
 html {
     min-height:100%;
     font: $t-default-font-family/#{$t-default-line-height} $t-default-font-family;
@@ -16,11 +14,10 @@ strong {
     font-weight: 400;
 }
 
-/*
- * Remove text-shadow in selection highlight: h5bp.com/i
- * These selection rule sets have to be separate.
- * Customize the background color to match your design.
- */
+
+// Remove text-shadow in selection highlight: h5bp.com/i
+// These selection rule sets have to be separate.
+// Customize the background color to match your design.
 ::-moz-selection {
     background: c(blue-light);
     text-shadow: none;
@@ -31,12 +28,9 @@ strong {
     text-shadow: none;
 }
 
-
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
+// Remove the gap between audio, canvas, iframes,
+// images, videos and the bottom of their containers:
+// https://github.com/h5bp/html5-boilerplate/issues/440
 audio,
 canvas,
 iframe,
@@ -46,19 +40,15 @@ video {
     vertical-align: middle;
 }
 
-/*
- * Remove default fieldset styles.
- */
 
+// Remove default fieldset styles.
 fieldset {
     border: 0;
     margin: 0;
     padding: 0;
 }
 
-/*
- * Allow only vertical resizing of textareas.
- */
+// Allow only vertical resizing of textareas.
 textarea {
     resize: vertical;
 }

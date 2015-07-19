@@ -1,11 +1,8 @@
-/*
- * will generate an icon helper class for different sized icons
- * usage:
- *      @include icons("icons", 32, 10 14 16 25, "px")
- * can be tested here:
- *      http://sassmeister.com/gist/bda172ef16a168d99b3d
- */
-
+// will generate an icon helper class for different sized icons
+// usage:
+//      @include icons("icons", 32, 10 14 16 25, "px")
+// can be tested here:
+//      http://sassmeister.com/gist/bda172ef16a168d99b3d
 @mixin icons ($className: "icon", $defaultSize: 32, $iconSizes: 10 14 16 21 32, $unit: "px") {
     .#{$className} {
         display: inline-block;

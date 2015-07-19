@@ -1,6 +1,4 @@
-/**
- * Color variables
- */
+// Color variables
 $colors: (
   white           : #fff,
   grey            : #999,
@@ -27,9 +25,7 @@ $gradients: (
   )
 ) !default;
 
-/**
- * Color functions
- */
+// Color functions
 @function c($name) {
   @if map-has-key($colors, $name) {
     @return map-get($colors, $name);

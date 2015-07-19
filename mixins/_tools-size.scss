@@ -1,28 +1,22 @@
-/**
- * strip-unit removes units from values
- * by the bright @HugoGiraudel http://hugogiraudel.com/2013/08/12/sass-functions/
- * @param  {[number]} $value with unit
- * @return {[number]} without unit
- */
+// strip-unit removes units from values
+// by the bright @HugoGiraudel http://hugogiraudel.com/2013/08/12/sass-functions/
+// @param  {[number]} $value with unit
+// @return {[number]} without unit
 @function strip-unit($value) {
     @return $value / ($value * 0 + 1);
 }
 
-/**
- * px2percent calculates the relative with based on two values
- * @param  {[number]} $size
- * @param  {[number]} $contextSize
- * @return {[number in %]}
- */
+//px2percent calculates the relative with based on two values
+//@param  {[number]} $size
+//@param  {[number]} $contextSize
+//@return {[number in %]}
 @function px2percent ($size,$contextSize: $s-design-width) {
 	@return ( $size / $contextSize) * 100%;
 }
 
-/**
- * isRelative determines if the number is a relative value
- * @param   {number}  $val
- * @returns {Boolean}
- */
+// isRelative determines if the number is a relative value
+// @param   {number}  $val
+// @returns {Boolean}
 @function isRelative($val) {
   $relUnits: rem em;
   @each $unit in $relUnits {
@@ -33,18 +27,16 @@
   @return false;
 }
 
-/**
- * px2rel turns px values in to REM's base on the base font size
- * @param  {[number]} $px Wished font size
- * @param  {[number]} $baseSize Reference Size (usualy HTML/Body font size)
- * @param  {[number]} $unit of the converted value
- * @return {[number]} Relative value inc. unit
- */
+// px2rel turns px values in to REM's base on the base font size
+// @param  {[number]} $px Wished font size
+// @param  {[number]} $baseSize Reference Size (usually HTML/Body font size)
+// @param  {[number]} $unit of the converted value
+// @return {[number]} Relative value inc. unit
 @function px2rel($px, $baseSize: $t-default-font-size, $unit: rem) {
     $return: null;
     @each $val in $px {
       @if type-of($val) == number and unit($val) == 'px' {
-        $return: append($return, ( $val / $baseSize ) * 1) + $unit;
+        $return: append($return, ( $val / $baseSize )// 1) + $unit;
       } @else {
         $return: append($return, $val);
       }
@@ -52,17 +44,15 @@
     @return $return;
 }
 
-/**
- * rel2px converts relative values in to PX values
- * @param   {[number]} $rel           relative number to convert
- * @param   {[number]} $baseSize      multiplicator
- * @returns {[number]}                value in px
- */
+// rel2px converts relative values in to PX values
+// @param   {[number]} $rel           relative number to convert
+// @param   {[number]} $baseSize      multiplicator
+// @returns {[number]}                value in px
 @function rel2px($rel, $baseSize: $t-default-font-size) {
   $return: null;
     @each $val in $rel {
       @if type-of($val) == number and isRelative($val) {
-        $return: append($return, strip-unit($val) * strip-unit($baseSize) + px);
+        $return: append($return, strip-unit($val)// strip-unit($baseSize) + px);
       } @else {
         $return: append($return, $val);
       }
@@ -71,14 +61,11 @@
 }
 
 
-/**
- * remFallback turns attributes containing rem into there PX fallback
- * also magically does the opposite (turns attributes containing PX in rem)
- * examples: http://sassmeister.com/gist/e6bd061088f289c664a9
- *
- * @param   {[string]} $attr [description]
- * @param   {[list]} $vals [description]
- */
+// remFallback turns attributes containing rem into there PX fallback
+// also magically does the opposite (turns attributes containing PX in rem)
+// examples: http://sassmeister.com/gist/e6bd061088f289c664a9
+// @param   {[string]} $attr [description]
+// @param   {[list]} $vals [description]
 @mixin remFallback($attr,$vals) {
   $values: px2rel($vals);
   $fallback: rel2px($vals);

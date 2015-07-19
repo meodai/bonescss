@@ -4,8 +4,8 @@
     *:before,
     *:after {
         background: transparent !important;
-        color: #000 !important; /* Black prints faster:
-                                   http://www.sanbeiji.com/archives/953 */
+        color: #000 !important;
+        // Black prints faster: http://www.sanbeiji.com/archives/953
         box-shadow: none !important;
         text-shadow: none !important;
     }
@@ -23,10 +23,10 @@
         content: " (" attr(title) ")";
     }
 
-    /*
-     * Don't show links that are fragment identifiers,
-     * or use the `javascript:` pseudo protocol
-     */
+
+    // Don't show links that are fragment identifiers,
+    // or use the `javascript:` pseudo protocol
+
 
     a[href^="#"]:after,
     a[href^="javascript:"]:after {
@@ -39,10 +39,9 @@
         page-break-inside: avoid;
     }
 
-    /*
-     * Printing Tables:
-     * http://css-discuss.incutio.com/wiki/Printing_Tables
-     */
+
+    //Printing Tables:
+    // http://css-discuss.incutio.com/wiki/Printing_Tables
 
     thead {
         display: table-header-group;

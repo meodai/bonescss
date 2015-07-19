@@ -1,14 +1,12 @@
-/**
- * Clearfix: contain floats
- *
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
+
+// Clearfix: contain floats
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    `contenteditable` attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that receive the `clearfix` class.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
 @mixin clearfix {
     &:before, &:after {
         content: " ";
@@ -19,9 +17,7 @@
     }
 }
 
-/**
- * Class used to wrap the contents of sections that should have the with of the design
- */
+// Class used to wrap the contents of sections that should have the with of the design
 @mixin site-width {
     position: relative;
     margin: 0 auto;
@@ -58,23 +54,19 @@ $horizontal-list-types: (
     )
 );
 
-/**
- * creates a inline list
- *
- * types:
- *      inline:         [|---|----|--|-----|      ]
- *
- *      samewidth:      [|-----|-----|-----|-----|]
- *                      all direct children have the same width
- *
- *      equidistant:    [|---|   |---|   |---|   |---|]
- *                      space between children has the same with
- *
- * legend:
- *      list/wrap:      [  ]
- *      list-item/chil: |--|
- */
+// creates a inline list
+// types:
+// inline:         [|---|----|--|-----|      ]
 
+// samewidth:      [|-----|-----|-----|-----|]
+//                 all direct children have the same width
+
+// equidistant:    [|---|   |---|   |---|   |---|]
+//                 space between children has the same with
+
+// legend:
+// list/wrap:      [  ]
+// list-item/chil: |--|
 @mixin horizontal($childSelector: li, $vAlign: top, $type: inline) {
     $horizontal-list-type: map-get($horizontal-list-types, $type);
     @include cssify-map(map-get($horizontal-list-type, parent));
@@ -96,41 +88,35 @@ $horizontal-list-types: (
     }
 }
 
-/**
- * inline list where all direct children have the same width
- * [|-----|-----|-----|-----|]
- */
+// inline list where all direct children have the same width
+// [|-----|-----|-----|-----|]
+
 @mixin horizontal-samewidth-list {
     @include horizontal($type: samewidth);
 }
 
-/**
- * used for elements placed next to each other that should be equidistant
- * [|---|   |---|   |---|   |---|]
- */
+// used for elements placed next to each other that should be equidistant
+// [|---|   |---|   |---|   |---|]
 @mixin horizontal-equidistant {
     @include horizontal($childSelector: '*', $type: equidistant);
 }
 
-/**
- * used to make table-layouts
- * no documentation for now, read the code :D
- */
+// used to make table-layouts
+// no documentation for now, read the code :D
 @mixin table {
     display: table;
     width: 100%;
     box-sizing: border-box;
-    /*
-    &--gapped {
-        margin-bottom: -$s-base;
-        @include prefix-rule( "table-cell", $prefixes: $layout-selectors) {
-            padding-bottom: $s-base;
-        }
-        .l-table-cell + .l-table-cell {
-            padding-left: $s-base;
-        }
-    }
-    */
+
+    // &--gapped {
+    //     margin-bottom: -$s-base;
+    //     @include prefix-rule( "table-cell", $prefixes: $layout-selectors) {
+    //         padding-bottom: $s-base;
+    //     }
+    //     .l-table-cell + .l-table-cell {
+    //         padding-left: $s-base;
+    //     }
+    // }
 }
 @mixin table-row {
     display: table-row;
@@ -146,10 +132,8 @@ $horizontal-list-types: (
     }
 }
 
-/**
- * places children at the exremities of the parent
- * [|----|                |---|]
- */
+// places children at the exremities of the parent
+// [|----|                |---|]
 @mixin horizontal-extremities {
     @include clearfix;
     > * {
@@ -160,9 +144,7 @@ $horizontal-list-types: (
     }
 }
 
-/**
- *   entirely fills out a element
- */
+// entirely fills out a element
 @mixin fill {
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;

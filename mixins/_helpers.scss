@@ -1,24 +1,20 @@
-/**
- * http://stackoverflow.com/questions/11459746/css3-webfont-smoothing-and-antialiasing-in-firefox-and-opera
- */
+// http://stackoverflow.com/questions/11459746/css3-webfont-smoothing-and-antialiasing-in-firefox-and-opera
 @mixin antialiased {
     -webkit-font-smooting: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-/*
- *  will trucate text needs a fixed width
- *  http://css-tricks.com/snippets/css/truncate-string-with-ellipsis/
- */
+
+// will trucate text needs a fixed width
+// http://css-tricks.com/snippets/css/truncate-string-with-ellipsis/
+
 @mixin truncate {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
 }
 
-/*
- *  will reset buttons styles
- */
+// will reset buttons styles
 @mixin reset-button {
     border: none;
     padding: 0;

@@ -9,18 +9,16 @@ $state-classes: true !default;
 @if $state-classes {
     @include prefix-rule( "visuallyhidden", $prefixes: $state-selectors ) {
         @include visuallyhidden;
-        /*
-         * Extends the .visuallyhidden class to allow the element to be focusable
-         * when navigated to via the keyboard: h5bp.com/p
-         */
+
+        // Extends the .visuallyhidden class to allow the element to be focusable
+        // when navigated to via the keyboard: h5bp.com/p
         @include prefix-rule( "focusable", $prefixes: $state-selectors-and ) {
             @include visuallyhidden-focusable;
         }
     }
 
-    /*
-     * Hide visually and from screen readers, but maintain layout
-     */
+
+    // Hide visually and from screen readers, but maintain layout
     @include prefix-rule( "invisible", $prefixes: $state-selectors ) {
         visibility: hidden;
     }
@@ -46,7 +44,7 @@ $state-classes: true !default;
         }
     }
 
-    /* generic loading class */
+    // generic loading class
     @include prefix-rule( "loading", $prefixes: $state-selectors ) {
         pointer-events: none;
         opacity: 0.5;

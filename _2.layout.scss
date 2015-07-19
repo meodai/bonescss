@@ -44,7 +44,7 @@ $layout-classes: true !default;
         @include fill;
     }
 
-    /* centers with table layout and makes sure overflow is reachable when to high */
+    // centers with table layout and makes sure overflow is reachable when to high
     @include prefix-rule( "centered", $prefixes: $layout-selectors ) {
 
     }
@@ -63,7 +63,6 @@ $layout-classes: true !default;
     }
 }
 
-/**
- * Consider adding sensible grid for grid and responsiveness
- * @include sensibleGrid();
- */
+// Consider adding sensible grid for grid and responsiveness
+// @include sensibleGrid();
+
