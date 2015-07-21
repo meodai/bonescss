@@ -2,10 +2,10 @@
 $boilerplate-mode:       true !default;
 
 @if not $boilerplate-mode {
-    $layout-classes:    false;
-    $helper-classes:    false;
-    $form-classes:      false;
-    $state-classes:     false;
+  $layout-classes:    false;
+  $helper-classes:    false;
+  $form-classes:      false;
+  $state-classes:     false;
 }
 
 // if in boilerplate-mode adapt the prefixes to your need
@@ -22,6 +22,6 @@ $state-selectors-and:   "&%is-" "&.is-";
 
 
 @include
-    "0.settigs.sizes",
-    "0.settigs.colors",
-    "0.settigs.typography";
+  "0.settigs.sizes",
+  "0.settigs.colors",
+  "0.settigs.typography";

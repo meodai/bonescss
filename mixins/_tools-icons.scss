@@ -4,17 +4,17 @@
 // can be tested here:
 //      http://sassmeister.com/gist/bda172ef16a168d99b3d
 @mixin icons ($className: "icon", $defaultSize: 32, $iconSizes: 10 14 16 21 32, $unit: "px") {
-    .#{$className} {
-        display: inline-block;
-        background-size: 100% 100%;
-        background-position: center center;
-        vertical-align: middle;
-        width: #{$defaultSize}#{$unit}; height: #{$defaultSize}#{$unit};
+  .#{$className} {
+    display: inline-block;
+    background-size: 100% 100%;
+    background-position: center center;
+    vertical-align: middle;
+    width: #{$defaultSize}#{$unit}; height: #{$defaultSize}#{$unit};
+  }
+  @each $size in $iconSizes {
+    .#{$className}[class*="--#{$size}"]{
+      width: #{$size}#{$unit};
+      height: #{$size}#{$unit};
     }
-    @each $size in $iconSizes {
-        .#{$className}[class*="--#{$size}"]{
-            width: #{$size}#{$unit};
-            height: #{$size}#{$unit};
-        }
-    }
+  }
 }

@@ -2,28 +2,28 @@ $text-selectors: "%t-" ".t-" !default;
 $helper-classes: true !default;
 
 @if $helper-classes {
-    @include prefix-rule( "selectable", $prefixes: $text-selectors ) {
-        user-select: text;
-    }
+  @include prefix-rule( "selectable", $prefixes: $text-selectors ) {
+    user-select: text;
+  }
 
-    @include prefix-rule( "not-selectable", $prefixes: $text-selectors ) {
-        user-select: none;
-    }
+  @include prefix-rule( "not-selectable", $prefixes: $text-selectors ) {
+    user-select: none;
+  }
 
-    @include prefix-rule( "antialiased", $prefixes: $text-selectors ) {
-        @include antialiased;
-    }
+  @include prefix-rule( "antialiased", $prefixes: $text-selectors ) {
+    @include antialiased;
+  }
 
-    @include prefix-rule( "truncate", $prefixes: $text-selectors ) {
-        @include truncate;
-    }
+  @include prefix-rule( "truncate", $prefixes: $text-selectors ) {
+    @include truncate;
+  }
 }
 
 $form-selectors: "%form-" ".form-" !default;
 $form-classes: true !default;
 
 @if $form-classes {
-    @include prefix-rule( "reset-button", $prefixes: $form-selectors ) {
-        @include reset-button;
-    }
+  @include prefix-rule( "reset-button", $prefixes: $form-selectors ) {
+    @include reset-button;
+  }
 }

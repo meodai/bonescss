@@ -3,7 +3,7 @@
 // @param  {[number]} $value with unit
 // @return {[number]} without unit
 @function strip-unit($value) {
-    @return $value / ($value * 0 + 1);
+  @return $value / ($value * 0 + 1);
 }
 
 //px2percent calculates the relative with based on two values
@@ -33,15 +33,15 @@
 // @param  {[number]} $unit of the converted value
 // @return {[number]} Relative value inc. unit
 @function px2rel($px, $baseSize: $t-default-font-size, $unit: rem) {
-    $return: null;
-    @each $val in $px {
-      @if type-of($val) == number and unit($val) == 'px' {
-        $return: append($return, ( $val / $baseSize ) * 1) + $unit;
-      } @else {
-        $return: append($return, $val);
-      }
+  $return: null;
+  @each $val in $px {
+    @if type-of($val) == number and unit($val) == 'px' {
+      $return: append($return, ( $val / $baseSize ) * 1) + $unit;
+    } @else {
+      $return: append($return, $val);
     }
-    @return $return;
+  }
+  @return $return;
 }
 
 // rel2px converts relative values in to PX values
@@ -50,14 +50,14 @@
 // @returns {[number]}                value in px
 @function rel2px($rel, $baseSize: $t-default-font-size) {
   $return: null;
-    @each $val in $rel {
-      @if type-of($val) == number and isRelative($val) {
-        $return: append($return, strip-unit($val) * strip-unit($baseSize) + px);
-      } @else {
-        $return: append($return, $val);
-      }
+  @each $val in $rel {
+    @if type-of($val) == number and isRelative($val) {
+      $return: append($return, strip-unit($val) * strip-unit($baseSize) + px);
+    } @else {
+      $return: append($return, $val);
     }
-    @return $return;
+  }
+  @return $return;
 }
 
 

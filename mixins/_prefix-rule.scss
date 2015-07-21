@@ -14,13 +14,13 @@
 $default-selector-prefixes: "%" "." !default;
 
 @mixin prefix-rule ( $ruleNames, $prefixes: $default-selector-prefixes) {
-    $rules: "";
-    @each $ruleName in $ruleNames {
-        @each $prefix in $prefixes {
-            $rules: unquote($rules + $prefix + $ruleName + ",");
-        }
+  $rules: "";
+  @each $ruleName in $ruleNames {
+    @each $prefix in $prefixes {
+      $rules: unquote($rules + $prefix + $ruleName + ",");
     }
-    #{$rules} {
-        @content;
-    }
+  }
+  #{$rules} {
+    @content;
+  }
 }

@@ -1,14 +1,14 @@
 @include
-    "vendor/normalize",
-    // "vendor/reset",
-    "mixins",
-    "0.settings",
-    "1.base",
-    "2.layout";
+  "vendor/normalize",
+  // "vendor/reset",
+  "mixins",
+  "0.settings",
+  "1.base",
+  "2.layout";
 
-    // your modules or main CSS styles here
+  // your modules or main CSS styles here
 
 @include
-    "3.helpers",
-    "4.print",
-    "5.states";
+  "3.helpers",
+  "4.print",
+  "5.states";

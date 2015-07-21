@@ -1,33 +1,33 @@
 // http://stackoverflow.com/questions/11459746/css3-webfont-smoothing-and-antialiasing-in-firefox-and-opera
 @mixin antialiased {
-    -webkit-font-smooting: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smooting: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 
 // will trucate text needs a fixed width
 // http://css-tricks.com/snippets/css/truncate-string-with-ellipsis/
 @mixin truncate {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 // will reset buttons styles
 @mixin reset-button {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  overflow: visible; // removes padding in IE
+  &::-moz-focus-inner {
+    // removes padding in Firefox
     border: none;
     padding: 0;
-    cursor: pointer;
-    overflow: visible; // removes padding in IE
-    &::-moz-focus-inner {
-        // removes padding in Firefox
-        border: none;
-        padding: 0;
-    }
+  }
 }
 
 // https://css-tricks.com/snippets/css/momentum-scrolling-on-ios-overflow-elements/
 @mixin smoothscroll($axis:y) {
-    overflow-#{$axis}: scroll; // has to be scroll, not auto
-    -webkit-overflow-scrolling: touch;
+  overflow-#{$axis}: scroll; // has to be scroll, not auto
+  -webkit-overflow-scrolling: touch;
 }

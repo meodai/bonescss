@@ -8,50 +8,50 @@
 // 2. The use of `table` rather than `block` is only necessary if using
 //    `:before` to contain the top-margins of child elements.
 @mixin clearfix {
-    &:before, &:after {
-        content: " ";
-        display: table;
-    }
-    &:after {
-        clear: both;
-    }
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
 }
 
 // Class used to wrap the contents of sections that should have the with of the design
 @mixin site-width {
-    position: relative;
-    margin: 0 auto;
-    max-width: $s-design-width;
+  position: relative;
+  margin: 0 auto;
+  max-width: $s-design-width;
 }
 
 $horizontal-list-types: (
-    inline: (
-        parent: (),
-        child: (
-            display: inline-block
-        )
-    ),
-    samewidth: (
-        parent: (
-            display: table,
-            width: 100%,
-            table-layout: fixed
-        ),
-        child: (
-            height: 100%,
-            display: table-cell
-        )
-    ),
-    equidistant: (
-        parent: (
-            text-align: justify,
-            font-size: 0.001px // IE 9 & 10 don't like font-size: 0;
-        ),
-        child: (
-            display: inline-block,
-            font-size: $t-default-font-size
-        )
+  inline: (
+    parent: (),
+    child: (
+      display: inline-block
     )
+  ),
+  samewidth: (
+    parent: (
+      display: table,
+      width: 100%,
+      table-layout: fixed
+    ),
+    child: (
+      height: 100%,
+      display: table-cell
+    )
+  ),
+  equidistant: (
+    parent: (
+      text-align: justify,
+      font-size: 0.001px // IE 9 & 10 don't like font-size: 0;
+    ),
+    child: (
+      display: inline-block,
+      font-size: $t-default-font-size
+    )
+  )
 );
 
 // creates a inline list
@@ -68,105 +68,105 @@ $horizontal-list-types: (
 // list/wrap:      [  ]
 // list-item/chil: |--|
 @mixin horizontal($childSelector: li, $vAlign: top, $type: inline) {
-    $horizontal-list-type: map-get($horizontal-list-types, $type);
-    @include cssify-map(map-get($horizontal-list-type, parent));
+  $horizontal-list-type: map-get($horizontal-list-types, $type);
+  @include cssify-map(map-get($horizontal-list-type, parent));
 
-    list-style: none;
-    margin: 0; padding: 0;
+  list-style: none;
+  margin: 0; padding: 0;
 
-    > #{$childSelector} {
-        @include cssify-map(map-get($horizontal-list-type, child));
-        vertical-align: #{$vAlign};
-    }
+  > #{$childSelector} {
+    @include cssify-map(map-get($horizontal-list-type, child));
+    vertical-align: #{$vAlign};
+  }
 
-    @if type == equidistant {
-        &:after {
-          content: '';
+  @if type == equidistant {
+    &:after {
+      content: '';
           width: 100%; // Ensures there are at least 2 lines of text, so justification works
           display: inline-block;
         }
+      }
     }
-}
 
 // inline list where all direct children have the same width
 // [|-----|-----|-----|-----|]
 
 @mixin horizontal-samewidth-list {
-    @include horizontal($type: samewidth);
+  @include horizontal($type: samewidth);
 }
 
 // used for elements placed next to each other that should be equidistant
 // [|---|   |---|   |---|   |---|]
 @mixin horizontal-equidistant {
-    @include horizontal($childSelector: '*', $type: equidistant);
+  @include horizontal($childSelector: '*', $type: equidistant);
 }
 
 // used to make table-layouts
 // no documentation for now, read the code :D
 @mixin table {
-    display: table;
-    width: 100%;
-    box-sizing: border-box;
+  display: table;
+  width: 100%;
+  box-sizing: border-box;
 
-    // &--gapped {
-    //     margin-bottom: -$s-base;
-    //     @include prefix-rule( "table-cell", $prefixes: $layout-selectors) {
-    //         padding-bottom: $s-base;
-    //     }
-    //     .l-table-cell + .l-table-cell {
-    //         padding-left: $s-base;
-    //     }
-    // }
+  // &--gapped {
+  //     margin-bottom: -$s-base;
+  //     @include prefix-rule( "table-cell", $prefixes: $layout-selectors) {
+  //         padding-bottom: $s-base;
+  //     }
+  //     .l-table-cell + .l-table-cell {
+  //         padding-left: $s-base;
+  //     }
+  // }
 }
 @mixin table-row {
-    display: table-row;
+  display: table-row;
 }
 @mixin table-cell {
-    display: table-cell;
-    vertical-align: middle;
-    &--max {
-        width: 100%;
-    }
-    &--min {
-        width: 1%;
-    }
+  display: table-cell;
+  vertical-align: middle;
+  &--max {
+    width: 100%;
+  }
+  &--min {
+    width: 1%;
+  }
 }
 
 // places children at the exremities of the parent
 // [|----|                |---|]
 @mixin horizontal-extremities {
-    @include clearfix;
-    > * {
-        float: right;
-    }
-    > *:first-child {
-        float: left;
-    }
+  @include clearfix;
+  > * {
+    float: right;
+  }
+  > *:first-child {
+    float: left;
+  }
 }
 
 // entirely fills out a element
 @mixin fill {
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
 }
 
 @mixin centered-container {
-    @include fill;
-    overflow: auto;
+  @include fill;
+  overflow: auto;
 }
 @mixin centered-inner {
-    display: table;
-    vertical-align: middle;
-    text-align: center;
-    height: 100%; width: 100%;
+  display: table;
+  vertical-align: middle;
+  text-align: center;
+  height: 100%; width: 100%;
 }
 @mixin centered-content {
-    display: table-cell;
-    vertical-align: middle;
+  display: table-cell;
+  vertical-align: middle;
 }
 @mixin centered-body {
-    position: relative;
-    display: inline-block;
-    max-width: 90%;
-    text-align: left;
+  position: relative;
+  display: inline-block;
+  max-width: 90%;
+  text-align: left;
 }

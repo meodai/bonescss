@@ -2,55 +2,54 @@ $state-selectors: "%is-" ".is-" !default;
 $state-selectors-and: "&%is-" "&.is-" !default;
 $state-classes: true !default;
 
-
 @if $state-classes {
-    @include prefix-rule( "visuallyhidden", $prefixes: $state-selectors ) {
-        @include visuallyhidden;
+  @include prefix-rule( "visuallyhidden", $prefixes: $state-selectors ) {
+    @include visuallyhidden;
 
-        @include prefix-rule( "focusable", $prefixes: $state-selectors-and ) {
-            @include visuallyhidden-focusable;
-        }
+    @include prefix-rule( "focusable", $prefixes: $state-selectors-and ) {
+      @include visuallyhidden-focusable;
     }
+  }
 
 
-    // Hide visually and from screen readers, but maintain layout
-    @include prefix-rule( "invisible", $prefixes: $state-selectors ) {
-        visibility: hidden;
+  // Hide visually and from screen readers, but maintain layout
+  @include prefix-rule( "invisible", $prefixes: $state-selectors ) {
+    visibility: hidden;
+  }
+
+  @include prefix-rule( "disabled", $prefixes: $state-selectors ) {
+    @include disabled;
+  }
+
+  @include prefix-rule( "hidden", $prefixes: $state-selectors ) {
+    @include hidden;
+  }
+
+  @include prefix-rule( "visible", $prefixes: $state-selectors ) {
+    @include visible;
+    &--block {
+      display: block !important;
     }
-
-    @include prefix-rule( "disabled", $prefixes: $state-selectors ) {
-        @include disabled;
+    &--inline {
+      display: inline !important;
     }
-
-    @include prefix-rule( "hidden", $prefixes: $state-selectors ) {
-        @include hidden;
+    &--inline-block {
+      display: inline-block !important;
     }
+  }
 
-    @include prefix-rule( "visible", $prefixes: $state-selectors ) {
-        @include visible;
-        &--block {
-            display: block !important;
-        }
-        &--inline {
-            display: inline !important;
-        }
-        &--inline-block {
-            display: inline-block !important;
-        }
-    }
+  // generic loading class
+  @include prefix-rule( "loading", $prefixes: $state-selectors ) {
+    pointer-events: none;
+    opacity: 0.5;
 
-    // generic loading class
-    @include prefix-rule( "loading", $prefixes: $state-selectors ) {
-        pointer-events: none;
-        opacity: 0.5;
+    animation: pulse 2s infinite;
+  }
 
-        animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%   { opacity: 0.2; }
-      50%  { opacity: 0.6; }
-      100% { opacity: 0.2; }
-    }
+  @keyframes pulse {
+    0%   { opacity: 0.2; }
+    50%  { opacity: 0.6; }
+    100% { opacity: 0.2; }
+  }
 }
 

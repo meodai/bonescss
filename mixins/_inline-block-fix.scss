@@ -1,8 +1,8 @@
 $t-default-font-size: 16px !default;
 
 @mixin inline-block-fix($s: $t-default-font-size){
-	font-size: 0.1px;
-	> * {
-		font-size: $s;
-	}
+  font-size: 0.1px;
+  > * {
+    font-size: $s;
+  }
 }
