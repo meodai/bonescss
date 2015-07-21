@@ -1,17 +1,26 @@
 {
   "name": "bonescss",
   "main": [
+    "mixins/_cssify-map.scss",
+    "mixins/_helpers.scss",
     "mixins/_inline-block-fix.scss",
-    "mixins/_prefixRule.scss",
+    "mixins/_layout.scss",
+    "mixins/_prefix-rule.scss",
+    "mixins/_states.scss",
     "mixins/_tools-shape.scss",
+    "mixins/_tools-icons.scss",
     "mixins/_tools-size.scss",
-    "mixins/_tools-position.scss",
     "_mixins.scss",
     "_0.settings.scss",
+    "_0.settings.colors.scss",
+    "_0.settings.sizes.scss",
+    "_0.settings.typography.scss",
+    "_1.base.scss",
     "_2.layout.scss",
     "_3.helpers.scss",
     "_4.print.scss",
-    "_5.states.scss"
+    "_5.states.scss",
+    "main.scss"
   ],
   "ignore": [
     "source",
