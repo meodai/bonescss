@@ -1,21 +1,3 @@
-// Absolutely centers an element in it's parent horizontal, vertically or in both directions
-// @direction {[string]} vertical, horizontal or both
-@mixin absolute-center (
-  $direction: both
-){
-  position: absolute;
-  @if $direction == both {
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-  } @else if $direction == horizontal {
-    left: 50%;
-    transform: translateX(-50%);
-  } @else if $direction == vertical {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
-
 // Circle trigonometric mixin
 // x = a + r cos (t)
 // y = b + r cos (t)
