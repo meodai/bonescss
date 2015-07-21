@@ -172,10 +172,11 @@ $horizontal-list-types: (
 
 // Absolutely centers an element in it's parent horizontal, vertically or in both directions
 // @direction {[string]} vertical, horizontal or both
-@mixin absolute-center (
-  $direction: both
+@mixin center-absolute (
+  $direction: both,
+  $position: absolute
 ){
-  position: absolute;
+  position: $position;
   @if $direction == both {
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
@@ -186,4 +187,76 @@ $horizontal-list-types: (
     top: 50%;
     transform: translateY(-50%);
   }
+}
+
+
+// inline-block centering
+
+// [1] Sets font-size to 0.0001px to avoid gaps between
+//     the inline-block elements. Not 0 because IE7 and below
+//     somehow dislike font-size 0.
+// [2] Centers contents horizontally
+// [3] Adds a before element to vertical-align the .inner element
+// [4] Sets pseudo element to inline-block to make sure
+//     vertical-align works
+// [5] Makes sure the the element takes the full height of the wrap
+// [6] inner needs to be inline-block for vertical-align
+// [7] Resets the text-alignment to left (consider removing
+//     if contents need to be centered as well)
+// [8] Sets the font-size back to the regular font-size
+//     can be problematic when using font-size inheritance,
+//     consider a different inline-block gap avoiding technique:
+//     https://css-tricks.com/fighting-the-space-between-inline-block-elements/
+@mixin center-inline-block-wrap () {
+  font-size: 0.0001px;            /* [1] */
+  text-align: center;             /* [2] */
+  &:before {                      /* [3] */
+    content: '';                  /* [3] */
+    display: inline-block;        /* [4] */
+    vertical-align: middle;
+    height: 100%;                 /* [5] */
+  }
+}
+
+@mixin center-inline-block-inner () {
+  display: inline-block;          /* [6] */
+  text-align: left;               /* [7] */
+  font-size: 1rem;                /* [8] */
+  vertical-align: middle;
+}
+
+
+// flexbox centering
+
+// [1] wrap need to be set to flex to be able to use justify-content
+// [2] Makes sure the contents are centered horizontally since the
+//    default flexbox direction is set to row
+// [3] centers the inner element vertically
+
+@mixin center-flex-wrap {
+  display: flex;                /* [1] */
+  justify-content: center;      /* [2] */
+}
+@mixin center-flex-inner {
+  align-self: center;           /* [3] */
+}
+
+// Circle trigonometric mixin
+
+// x = a + r cos (t)
+// y = b + r cos (t)
+// where (a,b) is the center of the circle
+// (in our case a = 0 and b = 0 for simplicity. )
+// @degres {[degrees]} in deg
+// @degres {[radius]} in whatever unit
+@mixin translate-point-from-circle-centre($degres, $radius: $s-base) {
+  $x-value: circle-x($radius, $degree);
+  $y-value: circle-y($radius, $degree);
+  transform: translate($x-value, -$y-value);
+}
+@function circle-x($radius, $degree) {
+  @return $radius * cos($degree);
+}
+@function circle-y($radius, $degree) {
+  @return $radius * sin($degree);
 }

@@ -117,7 +117,10 @@ All rules inslide this file are prefixed with `.l-` and `%l-` but you can overwr
         - `.centered-content`
           - `.centered-body`
 
-  If you don't need to support uncool browser is suggest you use the mixin `absolute-center()`.
+  If you don't need to support uncool browser is suggest you use the mixin `center-absolute()`.
+
+- **@mixin center-absolute($direction:both|horizontal|vertical)**
+   Absolutely centers an element in it's parent horizontal, vertically or in both directions
 
 ## 3.helpers
 The helpers are mostly text helpers. This is why the rules are prefixed with `%t-` and `.t-`, this can be changed by overwriting: `$text-selectors: "%t-" ".t-";`
