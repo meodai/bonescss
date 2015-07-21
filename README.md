@@ -129,8 +129,15 @@ The helpers are mostly text helpers. This is why the rules are prefixed with `%t
   -webkit-font-smooting: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-- .t-truncate (@mixin truncate)
+- **.t-truncate** (@mixin truncate)
   Will [trucate text](http://css-tricks.com/snippets/css/truncate-string-with-ellipsis/) using overflow ellipsis.
+
+- **@mixin smoothscroll** ($axis:y/x)
+  Will make the overflow-y or x play nice on IOS.
+  ```
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  ```
 
 ## 4.print
 The print part from H5BP [main.css](https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L203)
