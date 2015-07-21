@@ -7,7 +7,6 @@
 
 // will trucate text needs a fixed width
 // http://css-tricks.com/snippets/css/truncate-string-with-ellipsis/
-
 @mixin truncate {
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -25,4 +24,10 @@
         border: none;
         padding: 0;
     }
+}
+
+// https://css-tricks.com/snippets/css/momentum-scrolling-on-ios-overflow-elements/
+@mixin smoothscroll($axis:y) {
+    overflow-#{$axis}: scroll; // has to be scroll, not auto
+    -webkit-overflow-scrolling: touch;
 }
