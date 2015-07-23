@@ -66,26 +66,28 @@ $horizontal-list-types: (
 // legend:
 // list/wrap:      [  ]
 // list-item/chil: |--|
-@mixin horizontal($childSelector: li, $vAlign: top, $type: inline) {
+@mixin horizontal($childSelector: li, $vAlign: top, $type: inline, $list: true) {
   $horizontal-list-type: map-get($horizontal-list-types, $type);
   @include cssify-map(map-get($horizontal-list-type, parent));
 
-  list-style: none;
-  margin: 0; padding: 0;
+  @if $list {
+    list-style: none;
+    margin: 0; padding: 0;
+  }
 
   > #{$childSelector} {
     @include cssify-map(map-get($horizontal-list-type, child));
     vertical-align: #{$vAlign};
   }
 
-  @if type == equidistant {
+  @if $type == equidistant {
     &:after {
       content: '';
-          width: 100%; // Ensures there are at least 2 lines of text, so justification works
-          display: inline-block;
-        }
-      }
+      width: 100%; // Ensures there are at least 2 lines of text, so justification works
+      display: inline-block;
     }
+  }
+}
 
 // inline list where all direct children have the same width
 // [|-----|-----|-----|-----|]
