@@ -1,0 +1,27 @@
+{
+  "name": "bonescss",
+  "version": "0.7.3",
+  "description": "SCSS/CSS starting-point for every project. Mixes smacss namespaced h5bp things with other stuff I use all the time. It includes all the nice things from H5BP nicely namespaced using SMACSS",
+  "main": "main.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meodai/bonescss.git"
+  },
+  "keywords": [
+    "scss",
+    "sass",
+    "bootstrap",
+    "css-framework",
+    "css",
+    "css-utilities"
+  ],
+  "author": "meodai <meodai@gmail.com> (https://github.com/meodai/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meodai/bonescss/issues"
+  },
+  "homepage": "https://github.com/meodai/bonescss#readme"
+}
