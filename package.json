@@ -1,6 +1,6 @@
 {
   "name": "bonescss",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "description": "SCSS/CSS starting-point for every project. Mixes smacss namespaced h5bp things with other stuff I use all the time. It includes all the nice things from H5BP nicely namespaced using SMACSS",
   "main": "main.scss",
   "scripts": {
