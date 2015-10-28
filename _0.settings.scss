@@ -21,7 +21,7 @@ $state-selectors:       "%is-" ".is-";
 $state-selectors-and:   "&%is-" "&.is-";
 
 
-@include
-  "0.settings.sizes",
-  "0.settings.colors",
-  "0.settings.typography";
+@import
+  '0.settings.sizes',
+  '0.settings.colors',
+  '0.settings.typography';
