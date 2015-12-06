@@ -7,15 +7,15 @@ SCSS/CSS starting-point for every project. Mixes [smacss](https://smacss.com/) n
 ##Installation
 There are two ways to install it:
 
-1. add bower to your scss directories then `bower install bonescss`, then `@include` the individual files in your SCSS files
+1. add bower to your SCSS directories then `bower install bonescss`, then `@include` the individual files in your SCSS files
 2. Or checkout this repository into your SCSS directory and use it as a boilerplate: `git clone https://github.com/meodai/bonescss.git your-scss-directory`
 
 ##Usage
-There are two main ways to integrate bonscss into your project.
+There are two main ways to integrate bonescss into your project:
 
 1. Using only the mixins on your own classes.
   -  all you have to include is `0.setting` and `mixins`
-  -  adapt the differet `0.setting`'s file to your project.
+  -  adapt the different `0.setting`'s file to your project.
 2. Use it in as boilerplate with placeholder selectors or classes.
   - include and adapt `main.scss`
   - adapt the differet `0.setting`'s file to your project.
@@ -78,12 +78,12 @@ There are two main ways to integrate bonscss into your project.
 Contains the part H5BP's main.css before [`Author's custom styles`](https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css)
 
 ## 2.layout
-All rules inslide this file are prefixed with `.l-` and `%l-` but you can overwrite this variable `$layout-selectors: "%l-" ".l-";`
+All rules inside this file are prefixed with `.l-` and `%l-` but you can overwrite this variable `$layout-selectors: "%l-" ".l-";`
 
-- **.l-clearfix** (@mixin cleafix)
+- **.l-clearfix** (@mixin clearfix)
   h5bp's [cleafix](https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L171)
 
-- **.l-size-width** (@mixin site-widh)
+- **.l-size-width** (@mixin site-witdh)
   Used as a class for containers. Sets the with of the design and centers it. (Also set it to position relative)
 
 - **.l-horizontal-list** (@mixin horizontal)
@@ -99,11 +99,11 @@ All rules inslide this file are prefixed with `.l-` and `%l-` but you can overwr
   Every element inside this container will have equal distances in between.
 
 - **.l-table, .l-table-row, .l-table-cell** (@mixin table, table-row, table-cell)
-  Used for tablelayouts. Because yes sometimes I use them.
+  Used for table layouts. Because yes sometimes I use them.
   `.l-table-cell` comes with a modifier `.l-table-cell--max` and `.l-table-cell--min`. `.l-table-cell--min` Is always as wide as its contents. and `.l-table-cell--max` as wide as possible inside the table layout.
 
 - **.l-horizontal-extremities** (@mixin horizontal-extremities)
-  Floats all children right and the first one left. Also extends `.l-clerfix`.
+  Floats all children right and the first one left. Also extends `.l-clearfix`.
 
 - **.l-fill** (@mixin fill)
   Uses `position:absolute` and fills its context.
@@ -133,7 +133,7 @@ The helpers are mostly text helpers. This is why the rules are prefixed with `%t
   -moz-osx-font-smoothing: grayscale;
 
 - **.t-truncate** (@mixin truncate)
-  Will [trucate text](http://css-tricks.com/snippets/css/truncate-string-with-ellipsis/) using overflow ellipsis.
+  Will [truncate text](http://css-tricks.com/snippets/css/truncate-string-with-ellipsis/) using overflow ellipsis.
 
 - **@mixin smoothscroll** ($axis:y/x)
   Will make the overflow-y or x play nice on IOS.
@@ -181,10 +181,10 @@ Includes all the mixins and functions
 - **@mixin px2rel($px, $baseSize, $unit)**
   Will convert any pixel unit to a relative unit. Usually used to convert font-sizes.
   If for example your `h1` should have a font-size of 40px and your base font-size is 16px. The function would be used as such: `font-size: px2rel(40px, 16px)`
-  The defult unit will be `rem` you can set it to something else (like EM) by using the third argument. If you set $s-font-base in your options somewhere you don't have to pass the second argument.
+  The default unit will be `rem` you can set it to something else (like EM) by using the third argument. If you set $s-font-base in your options somewhere you don't have to pass the second argument.
 
 - **@mixin font-size($px)**
-  Sets a font size with a PX fallback for oldbrowsers
+  Sets a font size with a PX fallback for old browsers
   `font-size: font-size(16px)`
   will result in
   ```
@@ -193,7 +193,7 @@ Includes all the mixins and functions
   ```
 
 - **line-height($px)**
-  Set a line-height with a PX fallback exacly as the font-size function
+  Set a line-height with a PX fallback exactly as the font-size function
 
 ### Shapes
 - **triangle( $height, $color, $direction, $width )**
