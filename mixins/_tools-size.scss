@@ -87,3 +87,20 @@
   @warn "Unknown `#{$name}` in $sizes.";
   @return null;
 }
+
+@mixin bp($label) {
+  @if map-has-key($breakpoints, $label) {
+    $width: map-get($breakpoints, $label);
+    @if mixin-exists(breakpoint) {
+      @include breakpoint($label) {
+        @content;
+      }
+    } @else {
+      @media #{$width} {
+        @content;
+      }
+    }
+  } @else {
+    @warn "`#{$label}` is not a valid key in `$breakpoints`.";
+  }
+}
