@@ -20,12 +20,3 @@ $sizes: (
   medium      : $s-base,
   small       : $s-base * .5
 )  !default;
-
-@function size($name: medium) {
-  @if map-has-key($sizes, $name) {
-    @return map-get($sizes, $name);
-  }
-
-  @warn "Unknown `#{$name}` in $sizes.";
-  @return null;
-}

@@ -75,3 +75,15 @@
   }
   #{$attr}: $values;
 }
+
+// size outputs $sizes
+// @param   {[string]} $name          key from $sizes map
+// @returns {[number]}
+@function size($name: medium) {
+  @if map-has-key($sizes, $name) {
+    @return map-get($sizes, $name);
+  }
+
+  @warn "Unknown `#{$name}` in $sizes.";
+  @return null;
+}
