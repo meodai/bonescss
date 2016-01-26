@@ -20,7 +20,7 @@
 @mixin typeBreakpoint($type-breakpoints, $name, $default-types) {
   @each $breakpoint-name in $type-breakpoints {
     @if not ($breakpoint-name == $breakpoint-default) {
-      @include breakpoint($breakpoint-name) {
+      @include bp($breakpoint-name) {
         $breakpoint-styles: map-get($types, $breakpoint-name);
         @include cssify-map(map-get($breakpoint-styles, $name));
       }
