@@ -11,43 +11,37 @@ $t-default-font-style  : normal;
 $t-default-line-height : 1.5;
 
 $types: (
-  default: (
-    font-size     : 1rem,
-    font-family   : $t-default-font-family,
-    font-weight   : $t-regular,
-    font-style    : normal,
-    line-height   : 1.375
+  desktop: (
+    default: (
+      font-size     : 1rem,
+      font-family   : $t-default-font-family,
+      font-weight   : $t-regular,
+      font-style    : normal,
+      line-height   : 1.5
+    ),
+    title: (
+      font-weight   : $t-bold,
+      font-size     : 2.25rem,
+      line-height   : 1.3
+    ),
+    subtitle: (
+      font-weight   : $t-bold,
+      font-size     : 1.75rem,
+      line-height   : 1.2
+    ),
+    paragraph: (
+      font-size     : 1rem
+    )
   ),
-  header-title: (
-    font-weight   : $t-bold,
-    font-size     : 2.625rem,
-    line-height   : 1.19
-  ),
-  title: (
-    font-weight   : $t-bold,
-    font-size     : 2.25rem,
-    line-height   : 1.667
-  ),
-  subtitle: (
-    font-weight   : $t-bold,
-    font-size     : 1.75rem,
-    line-height   : 1.143
-  ),
-  paragraph: (
-    font-size     : 1rem,
-    line-height   : 1.375
-  ),
-  small: (
-    font-weight   : $t-light,
-    font-size     : .874rem,
-    line-height   : 1.285
+  mobile: (
+    default: (
+      font-size     : 1.15rem,
+      line-height   : 1.5
+    ),
+    title: (
+      font-size     : 2rem
+    )
   )
 ) !default;
 
-@mixin t($name: default) {
-  @if map-has-key($types, $name) {
-    @include cssify-map(map-get($types, $name));
-  } @else {
-    @warn 'no type named `#{$types}` in $types';
-  }
-}
+$type-breakpoints: map-keys($types);

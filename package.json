@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/meodai/bonescss/issues"
   },
-  "homepage": "https://github.com/meodai/bonescss#readme"
+  "homepage": "https://github.com/meodai/bonescss#readme",
+  "dependencies": {
+    "sensible": "^0.5.6"
+  }
 }

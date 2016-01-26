@@ -1,0 +1,29 @@
+@mixin type($name: default, $overwrites: null) {
+  $default-types: map-get($types, $breakpoint-default);
+
+  @if map-has-key($default-types, $name) {
+    $breakpoint-styles: map-get($default-types, $name);
+    @if $overwrites {
+      $breakpoint-styles: map-merge($breakpoint-styles, $overwrites);
+    }
+    // prints styles for the default breakpoint
+    @each $property, $value in $breakpoint-styles {
+      #{$property}: $value
+    }
+    @include typeBreakpoint($type-breakpoints, $name, $default-types);
+  } @else {
+    @warn 'no type named `#{$types}` in $types';
+  }
+}
+
+// renders modifieres
+@mixin typeBreakpoint($type-breakpoints, $name, $default-types) {
+  @each $breakpoint-name in $type-breakpoints {
+    @if not ($breakpoint-name == $breakpoint-default) {
+      @include breakpoint($breakpoint-name) {
+        $breakpoint-styles: map-get($types, $breakpoint-name);
+        @include cssify-map(map-get($breakpoint-styles, $name));
+      }
+    }
+  }
+}
