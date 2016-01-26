@@ -11,6 +11,9 @@ $breakpoints: (
   "print"               : "print"
 ) !default;
 
+// desktop or mobile-first?
+$breakpoint-default: desktop;
+
 $sizes: (
   huge        : $s-base * 3,
   large       : $s-base * 1.5,
