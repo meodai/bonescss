@@ -1,5 +1,5 @@
 /* print CSS fromt H5BP */
-@include breakpoint(print) {
+@include bp(print) {
   *,
   *:before,
   *:after {

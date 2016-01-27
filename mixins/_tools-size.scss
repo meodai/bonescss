@@ -75,3 +75,32 @@
   }
   #{$attr}: $values;
 }
+
+// size outputs $sizes
+// @param   {[string]} $name          key from $sizes map
+// @returns {[number]}
+@function size($name: medium) {
+  @if map-has-key($sizes, $name) {
+    @return map-get($sizes, $name);
+  }
+
+  @warn "Unknown `#{$name}` in $sizes.";
+  @return null;
+}
+
+@mixin bp($label) {
+  @if map-has-key($breakpoints, $label) {
+    $width: map-get($breakpoints, $label);
+    @if mixin-exists(breakpoint) {
+      @include breakpoint($label) {
+        @content;
+      }
+    } @else {
+      @media #{$width} {
+        @content;
+      }
+    }
+  } @else {
+    @warn "`#{$label}` is not a valid key in `$breakpoints`.";
+  }
+}
