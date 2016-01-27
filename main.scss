@@ -1,4 +1,4 @@
-@include
+@import
   "vendor/normalize",
   // "vendor/reset",
   "0.settings",
@@ -8,7 +8,7 @@
 
   // your modules or main CSS styles here
 
-@include
+@import
   "3.helpers",
   "4.print",
   "5.states";
