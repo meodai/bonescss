@@ -1,4 +1,5 @@
 @mixin type($name: default, $overwrites: null) {
+  $type-breakpoints: map-keys($types);
   $default-types: map-get($types, $breakpoint-default);
 
   @if map-has-key($default-types, $name) {
