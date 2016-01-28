@@ -1,15 +1,13 @@
 var Vue = require('vue');
+/* var css = require('!style!css!sass!../../main.scss'); */
+var base = require('./base.vue');
 var typography = require('./typography.vue');
-var css = require('!style!css!sass!../../main.scss');
-
-console.log('css', css);
-
-// mount a root Vue instance
+//var sassVariables = require("!!sass-variables!../../_0.settings.typography.scss");
+//console.log(sassVariables)
 new Vue({
   el: 'body',
   components: {
-    // include the required component
-    // in the options
+    base: base,
     typography: typography,
   },
 });

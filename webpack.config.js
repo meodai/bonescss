@@ -15,7 +15,7 @@ module.exports = {
         loader: 'vue'   // loader to use for matched files
       },{
         test: /\.scss$/,
-        loader: "raw!css-loader!sass-loader"
+        loader: "!css-loader!sass-loader"
       }
     ]
   }
