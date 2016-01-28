@@ -52,3 +52,16 @@ fieldset {
 textarea {
   resize: vertical;
 }
+
+$text-selectors: "%t-" ".t-" !default;
+$typography-classes: true !default;
+
+@if $typography-classes {
+  $default-types: map-get($types, $breakpoint-default);
+
+  @each $rule, $key in $default-types {
+    @include prefix-rule($rule, $prefixes: $text-selectors ) {
+      @include type($rule);
+    }
+  }
+}

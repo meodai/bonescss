@@ -1,11 +1,12 @@
 // global settings
-$boilerplate-mode:       true !default;
+$boilerplate-mode:          true !default;
 
 @if not $boilerplate-mode {
-  $layout-classes:    false;
-  $helper-classes:    false;
-  $form-classes:      false;
-  $state-classes:     false;
+  $typography-classes:      false;
+  $layout-classes:          false;
+  $helper-classes:          false;
+  $form-classes:            false;
+  $state-classes:           false;
 }
 
 // if in boilerplate-mode adapt the prefixes to your need
