@@ -1,5 +1,5 @@
 <style lang="sass">
-$boilerplate-mode: false !global;
+$boilerplate-mode: false;
 
 @import
   "../../vendor/normalize",
