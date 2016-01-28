@@ -27,3 +27,16 @@
     }
   }
 }
+
+// renders default text helper classes
+@mixin textClasses ($prefix: "%t-" ".t-") {
+  $default-types: map-get($types, $breakpoint-default);
+
+  @each $rule, $key in $default-types {
+    @if not ($rule == default)  {
+      @include prefix-rule($rule, $prefixes: $prefix) {
+        @include type($rule);
+      }
+    }
+  }
+}

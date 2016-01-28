@@ -20,23 +20,13 @@ body {
   @include type;
 }
 
-.title {
-  @include type(title);
-}
-
-.subtitle {
-  @include type(subtitle);
-}
-
-.paragraph {
-  @include type(paragraph);
-}
+@include textClasses(".t-");
 
 </style>
 
 <template lang="jade">
 div.typography
-  h1.title {{ title }}
-  h2.subtitle {{ subtitle }}
-  p.lead {{ lead }}
+  h1.t-title {{ title }}
+  h2.t-subtitle {{ subtitle }}
+  p.t-paragraph {{ lead }}
 </template>
