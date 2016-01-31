@@ -11,7 +11,7 @@ $boilerplate-mode:          true !default;
 
 // if in boilerplate-mode adapt the prefixes to your need
 // by default bonescss will create placeholders selectors and regular selectors
-// this will result in classnames like:
+// this will result in class-names like:
 // %l-site-width, .l-site-width { /* foobar */ }
 // if not in boilerplate mode this will be ignored
 
@@ -21,6 +21,12 @@ $form-selectors:        "%form-" ".form-";
 $state-selectors:       "%is-" ".is-";
 $state-selectors-and:   "&%is-" "&.is-";
 
+
+$modern:                    true !default;
+
+@if not $modern {
+    $feature-flexbox:       false;
+}
 
 @import
   '0.settings.sizes',
