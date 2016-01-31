@@ -5,7 +5,7 @@ export default {
     return {
       title: 'Module title',
       subtitle: 'Module sub-title',
-      type: 'scss'
+      type: 'html'
     }
   }
 }
@@ -28,9 +28,10 @@ export default {
     slot(name='demo')
       | Example
 
-  code.module__code(class='syntax-' + type)
-    slot(name='code')
-      | Some html code
+  pre.module__code(data-lang=type, class='language-{{type}}')
+    code(class='language-{{type}}')
+      slot(name='code')
+        | Some html code
 
 
 </template>
