@@ -10,6 +10,23 @@ $t-default-font-weight  : $t-regular;
 $t-default-font-style   : normal;
 $t-default-line-height  : 1.5;
 
+$colors: (
+  white                 : #fff,
+  black                 : #16161d,
+  blue-light            : pink
+);
+
+$s-design-width         : 900px;
+$s-golden               : 1.61803398875;
+$s-base                 : 1rem;
+
+$sizes: (
+  huge                  : $s-base * 3,
+  large                 : $s-base * 1.5,
+  medium                : $s-base,
+  small                 : $s-base * .5
+);
+
 $types: (
   desktop: (
     default: (
@@ -57,18 +74,11 @@ $types: (
     ),
     title-page: (
       font-size     : 3rem,
-      border-bottom : 1px solid black,
-      margin-bottom : 0.25em,
-      color         : black
+      margin-top : 0.25em
     )
   )
 );
 
-$colors: (
-  white           : #fff,
-  black           : #16161d,
-  blue-light      : pink
-);
 
 @import
   "../../0.settings",

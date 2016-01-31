@@ -18,7 +18,7 @@ export default {
 .header {
   background: color(black);
   color: color(white);
-  padding: size(large);
+  padding: size(huge);
   text-align: center;
 }
 
@@ -32,9 +32,25 @@ export default {
 
 .logo {
   display: inline-block;
-  width: 6rem;
+
+  width: 5rem;
+  margin-right: 1rem;
+  padding: .5rem;
+
+  vertical-align: bottom;
+
+  color: color(black);
+  background: color(white);
+
+  clip-path: circle(48% at 50% 50%);
+
   path {
     fill: currentColor;
+  }
+
+  @include bp(mobile) {
+    display: block;
+    margin: 0 auto;
   }
 }
 
