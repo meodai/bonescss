@@ -13,7 +13,8 @@ $t-default-line-height  : 1.5;
 $colors: (
   white                 : #fff,
   black                 : #16161d,
-  blue-light            : pink
+  blue-light            : pink,
+  orange                : rgb(250,190,110)
 );
 
 $s-design-width         : 900px;
@@ -63,8 +64,11 @@ $types: (
     ),
   ),
   tablet: (
+    default: (
+      font-size     : 1.15rem
+    ),
     title-page: (
-      color         : silver
+      color         : 3.5rem
     )
   ),
   mobile: (
