@@ -1,3 +1,5 @@
+$feature-flexbox: false !default;
+
 // Clearfix: contain floats
 // For modern browsers
 // 1. The space content is one way to avoid an Opera bug when the
@@ -194,6 +196,7 @@ $horizontal-list-types: (
   @include fill;
   overflow: auto;
 }
+
 @mixin centered-inner {
   display: table;
   vertical-align: middle;
