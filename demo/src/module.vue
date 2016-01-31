@@ -20,7 +20,7 @@ $line: size(tiny) solid color(black);
     @include type(title-sub,
       (
         margin: size(medium, -1) size(medium, -1) size(medium) size(medium, -1),
-        padding: size(medium),
+        padding: size(medium) size(medium) calc( #{size(medium)} - .3ex ) ,
         border-bottom: $line
       )
     );
