@@ -10,6 +10,8 @@ on the awesome parts of CSS.
 - 100% BEM compatible
 - Bootstrap mode that generates ready to use classess
 
+
+
 ##Installation
 There are two ways to install it:
 
@@ -17,7 +19,8 @@ There are two ways to install it:
 2. Or checkout this repository into your SCSS directory and use it as a boilerplate: `git clone https://github.com/meodai/bonescss.git your-scss-directory`
 
 ##Usage
-There are two main ways to integrate bonescss into your project:
+You can add it to your existing SASS setup and make use
+of all the mixins and helpers or you can let it generate helper classes in boilerplate mode.
 
 1. Using only the mixins on your own classes.
   -  all you have to include is `0.setting` and `mixins`
