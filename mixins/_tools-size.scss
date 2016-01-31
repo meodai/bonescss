@@ -11,7 +11,7 @@
 //@param  {[number]} $contextSize
 //@return {[number in %]}
 @function px2percent ($size,$contextSize: $s-design-width) {
-	@return ( $size / $contextSize) * 100%;
+	@return ($size / $contextSize) * 100%;
 }
 
 // isRelative determines if the number is a relative value
@@ -79,9 +79,9 @@
 // size outputs $sizes
 // @param   {[string]} $name          key from $sizes map
 // @returns {[number]}
-@function size($name: medium) {
+@function size($name: medium, $multiplyer: 1) {
   @if map-has-key($sizes, $name) {
-    @return map-get($sizes, $name);
+    @return map-get($sizes, $name) * $multiplyer;
   }
 
   @warn "Unknown `#{$name}` in $sizes.";
