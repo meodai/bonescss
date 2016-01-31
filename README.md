@@ -10,6 +10,8 @@ on the awesome parts of CSS.
 - 100% BEM compatible
 - Bootstrap mode that generates ready to use classess
 
+Unlike Compass or Bourbon, bonescss is not meant to provide mixins for bower compatibility.
+[autoprefixer](https://github.com/postcss/autoprefixer) does that job very well.
 
 
 ##Installation
