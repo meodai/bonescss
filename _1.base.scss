@@ -1,6 +1,6 @@
 // Don't include that just use it as a starting point
 html {
-  font: $t-default-font-family/#{$t-default-line-height} $t-default-font-family;
+  font: #{$t-default-font-size}/#{$t-default-line-height} $t-default-font-family;
   color: color(black);
   text-size-adjust: 100%;
   overflow-y: scroll;
