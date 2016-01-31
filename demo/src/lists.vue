@@ -7,8 +7,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
-@import "demo-settings";
+<style lang="sass!sass-resources">
 
 .site-width {
   @include site-width;

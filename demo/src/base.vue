@@ -1,8 +1,7 @@
-<style lang="sass">
+<style lang="sass!sass-resources">
 @import
   "../../vendor/normalize",
   // "vendor/reset",
-  "demo-settings",
   "../../1.base",
   "../../2.layout";
 

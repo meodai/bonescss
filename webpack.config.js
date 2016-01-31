@@ -6,6 +6,7 @@ module.exports = {
     path: __dirname,
     filename: './demo/build.js'
   },
+  sassResources: './demo/src/_demo-settings.scss',
   module: {
     // `loaders` is an array of loaders to use.
     // here we are only configuring vue-loader
