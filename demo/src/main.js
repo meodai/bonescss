@@ -2,6 +2,7 @@ var Vue = require('vue');
 /* var css = require('!style!css!sass!../../main.scss'); */
 var base = require('./base.vue');
 var typography = require('./typography.vue');
+var lists = require('./lists.vue');
 
 /*
 var sassSettings = require("!!raw!sass!../../_0.settings.scss");
@@ -13,5 +14,6 @@ new Vue({
   components: {
     base: base,
     typography: typography,
+    lists: lists,
   },
 });

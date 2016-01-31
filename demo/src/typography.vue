@@ -92,7 +92,6 @@ body, html {
     font-weight: $t-bold;
   }
 }
-
 </style>
 
 <template lang="jade">
@@ -107,4 +106,5 @@ div.typography
     sub * this is some kind of annotation
     h3 Second title
     p Praesent risus elit, semper id arcu id, molestie aliquam leo. Proin enim libero, ornare tristique enim nec, tincidunt volutpat diam. Fusce interdum ipsum vulputate, aliquam massa eu, consequat sapien. Aenean pretium eu ante quis blandit. In ex dolor, dignissim vitae nunc sed, congue gravida quam. Nulla ullamcorper libero ut commodo congue. Ut a tempor nibh. Aliquam orci mauris, pulvinar vel commodo vitae, porttitor a odio. Nunc ut accumsan nibh. Integer ultrices sit amet ante eu rutrum.
+
 </template>
