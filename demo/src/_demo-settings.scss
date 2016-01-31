@@ -1,15 +1,5 @@
 $boilerplate-mode       : true;
 
-$t-light                : 300;
-$t-regular              : 400;
-$t-bold                 : 700;
-
-$t-default-font-size    : 1rem;
-$t-default-font-family  : 'Roboto', sans-serif;
-$t-default-font-weight  : $t-regular;
-$t-default-font-style   : normal;
-$t-default-line-height  : 1.5;
-
 $colors: (
   white                 : #fff,
   black                 : #16161d,
@@ -22,11 +12,22 @@ $s-golden               : 1.61803398875;
 $s-base                 : 1rem;
 
 $sizes: (
-  huge                  : $s-base * 3,
-  large                 : $s-base * 1.5,
+  huge                  : $s-base * ($s-golden * 2),
+  large                 : $s-base * $s-golden ,
   medium                : $s-base,
-  small                 : $s-base * .5
+  small                 : $s-base * ($s-golden * .5),
+  tiny                  : $s-base * ($s-golden * .15)
 );
+
+$t-light                : 300;
+$t-regular              : 400;
+$t-bold                 : 700;
+
+$t-default-font-size    : 1rem;
+$t-default-font-family  : 'Roboto', sans-serif;
+$t-default-font-weight  : $t-regular;
+$t-default-font-style   : normal;
+$t-default-line-height  : 1.5;
 
 $types: (
   desktop: (
@@ -46,10 +47,11 @@ $types: (
     title-sub: (
       font-weight   : $t-light,
       font-size     : 2.25rem,
-      line-height   : 1.3
+      line-height   : 1.3,
+      margin        : 0
     ),
     title: (
-      font-weight   : $t-bold,
+      font-weight   : $t-light,
       font-size     : 1.75rem,
       line-height   : 1.2
     ),

@@ -17,6 +17,7 @@ export default {
   padding: size(huge) 0;
   text-align: center;
   border-bottom: 0.25rem solid color(orange);
+  margin-bottom: size(huge);
 }
 
 .title-page {
