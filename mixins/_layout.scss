@@ -25,30 +25,57 @@
 
 $horizontal-list-types: (
   inline: (
-    parent: (),
-    child: (
-      display: inline-block
+    legacy: (
+      parent: (),
+      child: (
+        display: inline-block
+      ),
+    ),
+    modern: (
+      parent: (
+        display: flex
+      ),
+      child: ()
     )
   ),
   samewidth: (
-    parent: (
-      display: table,
-      width: 100%,
-      table-layout: fixed
+    legacy: (
+      parent: (
+        display: table,
+        width: 100%,
+        table-layout: fixed
+      ),
+      child: (
+        height: 100%,
+        display: table-cell
+      ),
     ),
-    child: (
-      height: 100%,
-      display: table-cell
+    modern: (
+      parent: (
+        display: flex
+      ),
+      child: (
+        flex: 1
+      )
     )
   ),
   equidistant: (
-    parent: (
-      text-align: justify,
-      font-size: 0.001px // IE 9 & 10 don't like font-size: 0;
+    legacy: (
+      parent: (
+        text-align: justify,
+        font-size: 0.001px // IE 9 & 10 don't like font-size: 0;
+      ),
+      child: (
+        display: inline-block,
+        font-size: $t-default-font-size
+      ),
     ),
-    child: (
-      display: inline-block,
-      font-size: $t-default-font-size
+    modern: (
+      parent: (
+        display: flex,
+        justify-content: space-between
+      ),
+      child: ()
     )
   )
 );
@@ -66,8 +93,13 @@ $horizontal-list-types: (
 // legend:
 // list/wrap:      [  ]
 // list-item/chil: |--|
-@mixin horizontal($childSelector: li, $vAlign: top, $type: inline, $list: true) {
-  $horizontal-list-type: map-get($horizontal-list-types, $type);
+@mixin horizontal($childSelector: '> li', $vAlign: top, $type: inline, $list: true, $modern: $feature-flexbox) {
+  $mode: legacy;
+  @if $modern {
+    $mode: modern;
+  }
+
+  $horizontal-list-type: map-get(map-get($horizontal-list-types, $type), $mode);
   @include cssify-map(map-get($horizontal-list-type, parent));
 
   @if $list {
@@ -75,12 +107,14 @@ $horizontal-list-types: (
     margin: 0; padding: 0;
   }
 
-  > #{$childSelector} {
+  #{$childSelector} {
     @include cssify-map(map-get($horizontal-list-type, child));
-    vertical-align: #{$vAlign};
+    @if $mode == legacy {
+      vertical-align: #{$vAlign};
+    }
   }
 
-  @if $type == equidistant {
+  @if $type == equidistant and $mode == legacy {
     &:after {
       content: '';
       width: 100%; // Ensures there are at least 2 lines of text, so justification works
@@ -135,13 +169,18 @@ $horizontal-list-types: (
 
 // places children at the exremities of the parent
 // [|----|                |---|]
-@mixin horizontal-extremities {
-  @include clearfix;
-  > * {
-    float: right;
-  }
-  > *:first-child {
-    float: left;
+@mixin horizontal-extremities ($modern: $feature-flexbox) {
+  @if not $modern {
+    @include clearfix;
+    > * {
+      float: right;
+    }
+    > *:first-child {
+      float: left;
+    }
+  } @else {
+    display: flex;
+    justify-content: space-between;
   }
 }
 
