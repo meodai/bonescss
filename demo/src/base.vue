@@ -5,6 +5,10 @@
   "../../1.base",
   "../../2.layout";
 
+body {
+  background: color(orange);
+}
+
 .site-width {
   @include site-width;
   padding: 0 size(large);
