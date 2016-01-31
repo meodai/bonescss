@@ -2,6 +2,7 @@
 <head>
   <title>bonescss</title>
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="src/prism.css" data-noprefix />
 </head>
 <body>
   <pageheader></pageheader>
@@ -9,17 +10,23 @@
     <module
       title="Layout"
       subtitle="Helps you to layout stuff",
-      type="html">
+      type="scss">
 
       <p slot="description">some description</p>
       <div slot="demo">
         the demo
       </div>
-      <div slot="code">
-        <div>Some code</div>
-      </div>
+      <code slot="code">.list {
+  @include horizontal(
+    $childSelector: '> li', // child element ex: .module__element
+    $vAlign: top,           // child element ex: .module__element
+    $type: inline,
+    $list: true,
+    $modern: $feature-flexbox
+  );
+}</code>
     </module>
   </div>
-  <script scr="http://prismjs.com/prefixfree.min.js"></script>
+  <script scr="src/prefix.js"></script>
   <script src="build.js"></script>
 </body>
