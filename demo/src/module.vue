@@ -12,22 +12,30 @@ export default {
 </script>
 
 <style lang="sass!sass-resources">
+
+$line: size(tiny) solid color(black);
+
 .module {
   &__title {
-    @include type(title-sub);
+    @include type(title-sub,
+      (
+        margin: size(medium, -1) size(medium, -1) size(medium) size(medium, -1),
+        padding: size(medium),
+        border-bottom: $line
+      )
+    );
   }
   &__title-sub {
     @include type(title, (margin: 0 0 size(small)));
   }
   &__intro {
-    padding: size(large);
     background: color(white);
   }
   &__box {
     background: color(white);
     padding: size(medium);
     margin-bottom: size(medium);
-    border: size(tiny) solid color(black);
+    border: $line;
     box-shadow: size(small) size(small) 0 0 color(black);
   }
 }
