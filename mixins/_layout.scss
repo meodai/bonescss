@@ -116,6 +116,10 @@ $horizontal-list-types: (
     }
   }
 
+  @if $mode == modern {
+    align-items: #{$vAlign};
+  }
+
   @if $type == equidistant and $mode == legacy {
     &:after {
       content: '';
