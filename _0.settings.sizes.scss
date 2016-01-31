@@ -1,8 +1,8 @@
 // sizes & metrics
 
-$s-design-width: 1024px !default;
-$s-golden: 1.61803398875;
-$s-base: 1rem !default;
+$s-design-width         : 1024px !default;
+$s-golden               : 1.61803398875;
+$s-base                 : 1rem !default;
 
 $breakpoints: (
   "mobile"              : "only screen and (max-width:740px)",
@@ -12,11 +12,11 @@ $breakpoints: (
 ) !default;
 
 // desktop or mobile-first?
-$breakpoint-default: desktop;
+$breakpoint-default     : desktop;
 
 $sizes: (
-  huge        : $s-base * 3,
-  large       : $s-base * 1.5,
-  medium      : $s-base,
-  small       : $s-base * .5
+  huge                  : $s-base * 3,
+  large                 : $s-base * 1.5,
+  medium                : $s-base,
+  small                 : $s-base * .5
 )  !default;

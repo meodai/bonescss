@@ -1,44 +1,44 @@
 // Typography settings
-$t-light   : 300;
-$t-regular : 400;
-$t-bold    : 600;
+$t-light                : 300;
+$t-regular              : 400;
+$t-bold                 : 600;
 
-$t-default-font-size   : $s-base;
-$t-default-font-family : 'Source Sans Pro', sans-serif;
-$t-default-font-weight : $t-regular;
-$t-default-font-style  : normal;
-$t-default-line-height : 1.5;
+$t-default-font-size    : $s-base;
+$t-default-font-family  : 'Source Sans Pro', sans-serif;
+$t-default-font-weight  : $t-regular;
+$t-default-font-style   : normal;
+$t-default-line-height  : 1.5;
 
 $types: (
   desktop: (
     default: (
-      font-size     : 1rem,
-      font-family   : $t-default-font-family,
-      font-weight   : $t-regular,
-      font-style    : normal,
-      line-height   : 1.5
+      font-size         : 1rem,
+      font-family       : $t-default-font-family,
+      font-weight       : $t-regular,
+      font-style        : normal,
+      line-height       : 1.5
     ),
     title: (
-      font-weight   : $t-bold,
-      font-size     : 2.25rem,
-      line-height   : 1.3
+      font-weight       : $t-bold,
+      font-size         : 2.25rem,
+      line-height       : 1.3
     ),
     subtitle: (
-      font-weight   : $t-bold,
-      font-size     : 1.75rem,
-      line-height   : 1.2
+      font-weight       : $t-bold,
+      font-size         : 1.75rem,
+      line-height       : 1.2
     ),
     paragraph: (
-      font-size     : 1rem
+      font-size         : 1rem
     )
   ),
   mobile: (
     default: (
-      font-size     : 1.15rem,
-      line-height   : 1.5
+      font-size         : 1.15rem,
+      line-height       : 1.5
     ),
     title: (
-      font-size     : 3rem
+      font-size         : 3rem
     )
   )
 ) !default;
