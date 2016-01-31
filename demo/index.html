@@ -8,13 +8,35 @@
   <pageheader></pageheader>
   <div class="module-demos site-width">
     <module
-      title="Layout"
-      subtitle="Helps you to layout stuff",
+      title="Layout: horizontal"
+      subtitle="puts things next to each other in different favours",
       type="scss">
 
-      <p slot="description">some description</p>
+      <p slot="description">
+        The horizontal mixin places things next to each other. It has to be
+        applied to the parent element. The direct child of the element can be
+        specified using the $childSelector argument. The different flavors are;
+        inline (default), samewidth and equidistant
+      </p>
       <div slot="demo">
-        the demo
+        <h3>Horizontal</h3>
+        <ul class="l-horizontal-list demo__block">
+          <li class="demo__block">first</li>
+          <li class="demo__block">second</li>
+          <li class="demo__block">third</li>
+        </ul>
+        <h3>Horizontal samewidth</h3>
+        <ul class="l-horizontal-samewidth-list demo__block" style="box-sizing: border-box">
+          <li class="demo__block">first</li>
+          <li class="demo__block">second</li>
+          <li class="demo__block">third</li>
+        </ul>
+        <h3>Horizontal equidistant</h3>
+        <ul class="l-horizontal-equidistant demo__block" style="box-sizing: border-box">
+          <li class="demo__block">first</li>
+          <li class="demo__block">second</li>
+          <li class="demo__block">third</li>
+        </ul>
       </div>
       <code slot="code">.list {
   @include horizontal(

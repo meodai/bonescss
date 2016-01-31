@@ -12,7 +12,20 @@ export default {
 </script>
 
 <style lang="sass!sass-resources">
+.module {
 
+}
+.demo__block {
+  background: color(white);
+  padding: size(medium);
+  margin-bottom: size(medium);
+  box-shadow: inset 0 0 0 2px rgba(color(black),.25);
+  .demo__block {
+    background: color(orange);
+    padding: size(medium);
+    margin: 0;
+  }
+}
 </style>
 
 <template lang="jade">
