@@ -23,6 +23,7 @@ $feature-flexbox: false !default;
   position: relative;
   margin: 0 auto;
   max-width: $s-design-width;
+  box-sizing: border-box;
 }
 
 $horizontal-list-types: (
