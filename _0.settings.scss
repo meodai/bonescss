@@ -1,7 +1,7 @@
 // global settings
-$boilerplate-mode:          true !default;
+$bootstrap-mode:          true !default;
 
-@if not $boilerplate-mode {
+@if not $bootstrap-mode {
   $typography-classes:      false;
   $layout-classes:          false;
   $helper-classes:          false;

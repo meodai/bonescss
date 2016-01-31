@@ -2,12 +2,18 @@
 
 # bonescss
 
-SCSS/CSS starting-point for every project. Mixes [smacss](https://smacss.com/) namespaced [h5bp](https://github.com/h5bp/html5-boilerplate/) things with other stuff I use all the time. It includes all the nice things from H5BP nicely namespaced using SMACSS
+bonescss is a bare-bones CSS framework. It provides tools that enable you to focus
+on the awesome parts of CSS.
+
+- make use of [smacss](https://smacss.com/) namespaced class-names by default
+- all the [h5bp](https://github.com/h5bp/html5-boilerplate/) CSS defaults are there and up to date
+- 100% BEM compatible
+- Bootstrap mode that generates ready to use classess
 
 ##Installation
 There are two ways to install it:
 
-1. add bower to your SCSS directories then `bower install bonescss`, then `@include` the individual files in your SCSS files
+1. add `node_modules` to your SCSS directories then `npm install bonescss --save-dev`, then `@include` the individual files in your SCSS files
 2. Or checkout this repository into your SCSS directory and use it as a boilerplate: `git clone https://github.com/meodai/bonescss.git your-scss-directory`
 
 ##Usage

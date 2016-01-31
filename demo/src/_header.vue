@@ -14,7 +14,7 @@ export default {
 .header {
   background: color(black);
   color: color(orange);
-  padding: size(huge);
+  padding: size(huge) 0;
   text-align: center;
 }
 
