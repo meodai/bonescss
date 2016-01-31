@@ -1,16 +1,13 @@
 <style lang="sass">
-$boilerplate-mode: false;
-
 @import
   "../../vendor/normalize",
   // "vendor/reset",
-  "../../0.settings",
-  "../../mixins",
+  "demo-settings",
   "../../1.base",
   "../../2.layout";
 
 body {
-    padding: size(large);
+
 }
 
 @import

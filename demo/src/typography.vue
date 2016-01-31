@@ -12,62 +12,7 @@ export default {
 </script>
 
 <style lang="sass">
-@import "../../0.settings";
-@import "../../mixins";
-
-$types: (
-  desktop: (
-    default: (
-      font-size     : 1rem,
-      font-family   : $t-default-font-family,
-      font-weight   : $t-regular,
-      font-style    : normal,
-      line-height   : 1.5
-    ),
-    title-page: (
-      font-weight   : $t-bold,
-      font-size     : 4rem,
-      line-height   : 1.3,
-      margin        : 0
-    ),
-    title-sub: (
-      font-weight   : $t-bold,
-      font-size     : 2.25rem,
-      line-height   : 1.3
-    ),
-    title: (
-      font-weight   : $t-bold,
-      font-size     : 1.75rem,
-      line-height   : 1.2
-    ),
-    lead: (
-      font-size     : 1.2rem
-    ),
-    paragraph: (
-      font-size     : 1rem
-    ),
-    sub: (
-      font-size     : 0.75rem
-    ),
-  ),
-  tablet: (
-    title-page: (
-      color         : silver
-    )
-  ),
-  mobile: (
-    default: (
-      font-size     : 1.25rem,
-      line-height   : 1.5
-    ),
-    title-page: (
-      font-size     : 3rem,
-      border-bottom : 1px solid black,
-      margin-bottom : 0.25em,
-      color         : black
-    )
-  )
-);
+@import "demo-settings";
 
 body, html {
   @include type;

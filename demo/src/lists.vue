@@ -8,8 +8,7 @@ export default {
 </script>
 
 <style lang="sass">
-@import "../../0.settings";
-@import "../../mixins";
+@import "demo-settings";
 
 .site-width {
   @include site-width;
