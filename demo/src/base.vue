@@ -5,8 +5,9 @@
   "../../1.base",
   "../../2.layout";
 
-body {
-
+.site-width {
+  @include site-width;
+  padding: 0 size(large);
 }
 
 @import

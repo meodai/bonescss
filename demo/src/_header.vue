@@ -11,10 +11,6 @@ export default {
 
 <style lang="sass!sass-resources">
 
-.site-width {
-  @include site-width;
-}
-
 .header {
   background: color(black);
   color: color(orange);

@@ -39,9 +39,6 @@ body, html {
 
 <template lang="jade">
 div.typography
-  h1.t-title-page {{ title }}
-  h2.t-title-sub {{ subtitle }}
-  p.t-lead {{ lead }}
   .content
     h2 Lorem Ipsum dolor sit amet
     p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit enim eu sem porta scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a viverra ligula. Nunc eleifend sagittis neque. Donec gravida elit in felis volutpat pellentesque. Donec vitae neque ac est molestie convallis. Vivamus scelerisque risus non neque accumsan lobortis. Nam nec lacinia tellus, id bibendum est. Etiam porttitor nisi non consectetur suscipit. Etiam sit amet turpis elementum, accumsan lectus eget, pharetra sapien. Praesent id ante bibendum, ornare elit ac, elementum quam. Cras gravida nibh sed hendrerit mattis. Donec iaculis lorem ut sem tristique ultrices id nec ligula. Proin sapien nunc, maximus ac enim id, facilisis maximus nibh. Suspendisse pulvinar semper enim, aliquet placerat massa lacinia in.
