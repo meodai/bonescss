@@ -14,10 +14,10 @@ export default {
 .header {
   background: color(black);
   color: color(orange);
-  padding: size(huge) 0;
+  padding: size(huge) 0 size(huge, 2);
   text-align: center;
   border-bottom: 0.25rem solid color(orange);
-  margin-bottom: size(huge);
+  margin-bottom: size(huge, -1);
 }
 
 .title-page {
