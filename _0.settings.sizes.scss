@@ -12,7 +12,7 @@ $breakpoints: (
 ) !default;
 
 // desktop or mobile-first?
-$breakpoint-default     : desktop;
+$breakpoint-default     : desktop !default;
 
 $sizes: (
   huge                  : $s-base * 3,
