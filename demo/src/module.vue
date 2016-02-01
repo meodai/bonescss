@@ -14,19 +14,20 @@ export default {
 <style lang="sass!sass-resources">
 
 $line: size(tiny) solid color(black);
+$line-dashed: size(tiny) dashed color(black);
 
 .module {
   &__title {
     @include type(title-sub,
       (
         margin: size(medium, -1) size(medium, -1) size(medium) size(medium, -1),
-        padding: size(medium) size(medium) calc( #{size(medium)} - .3ex ) ,
+        padding: size(medium) size(medium) calc( #{size(medium)} - .3ex ),
         border-bottom: $line
       )
     );
   }
   &__title-sub {
-    @include type(title, (margin: 0 0 size(small)));
+    @include type(title, (margin: 0));
   }
   &__intro {
     background: color(white);
@@ -34,26 +35,35 @@ $line: size(tiny) solid color(black);
   &__box {
     background: color(white);
     padding: size(medium);
-    margin-bottom: size(medium);
+    margin-bottom: size(huge);
     border: $line;
     box-shadow: size(small) size(small) 0 0 color(black);
+  }
+  &__description {
+    margin: size(medium, -1) size(medium, -1) size(medium) size(medium, -1);
+    padding: size(medium) size(medium) calc( #{size(medium)} - .3ex );
+    border-bottom: $line;
   }
 }
 .demo {
   &__block {
-    background: color(white);
+    background: color(green);
     padding: size(medium);
-    box-shadow: inset 0 0 0 2px rgba(color(black),.25);
+    margin-bottom: size(large);
+    box-shadow: inset size(tiny) size(tiny) 0 0 color(black);
+
     .demo__block {
-      background: color(orange);
+      background: color(white);
       padding: size(medium);
+      margin-bottom: 0;
+      box-shadow: size(tiny) size(tiny) 0 0 color(black);
     }
   }
   &__title {
     @include type(title, (margin: 0));
   }
   &__title-sub {
-    @include type(lead, (margin: 0 0 size(large), font-weight: $t-light));
+    @include type(paragraph, (margin: 0 0 size(large)));
   }
 }
 

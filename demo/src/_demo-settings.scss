@@ -4,7 +4,8 @@ $colors: (
   white                 : #fff,
   black                 : #16161d,
   blue-light            : pink,
-  orange                : rgb(250,190,110)
+  orange                : rgb(250,190,110),
+  green                 : #a0fa8c
 );
 
 $s-design-width         : 57rem;
@@ -59,7 +60,8 @@ $types: (
       font-size     : 1.2rem
     ),
     paragraph: (
-      font-size     : 1rem
+      font-size     : 1rem,
+      font-weight   : $t-regular
     ),
     sub: (
       font-size     : 0.75rem
@@ -80,7 +82,7 @@ $types: (
     ),
     title-page: (
       font-size     : 3rem,
-      margin-top : 0.25em
+      margin-top    : 0.25em
     )
   )
 );
