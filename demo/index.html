@@ -8,6 +8,62 @@
   <pageheader></pageheader>
   <div class="module-demos site-width">
     <module
+      title="Base: typography"
+      subtitle="responsive front helpers",
+      type="scss">
+
+      <p slot="description">
+        Sets up the basic typography for your project. Make sure to set a $breakpoint-default
+        in the settings and populate the $types starting with your default breakpoint. After
+        that the only thing that needs to be defined is whatever differs for each breakpoint.
+      </p>
+
+      <div slot="demo">
+        <h3 class="demo__title">Font mixin</h3>
+        <h4 class="demo__title-sub">@include type(title); / .t-title</h4>
+        <div class="demo__block">
+          <typography></typography>
+        </div>
+      </div>
+
+      <code slot="code">// setup variable
+$types: (
+  desktop: (
+    default: (
+      font-size     : 1rem,
+      font-family   : $t-default-font-family,
+    ),
+    title: (
+      font-weight   : $t-bold,
+      font-size     : 1.75rem,
+      line-height   : 1.2
+    ),
+    paragraph: (
+      font-size     : 1rem
+    )
+  ),
+  mobile: (
+    default: (
+      font-size     : 1.25rem,
+    ),
+    title: (
+      font-size     : 3.5rem
+    )
+  )
+);
+
+// include in your classes
+.title--content {
+  @include type(
+    $name: title,             // name in your typo map
+    $overwrites: (margin: 0)  // overwrites
+  )
+}
+
+// or renders a helper class per item in $typo
+@include textClasses(".t-");</code>
+    </module>
+    <module
       title="Layout: horizontal"
       subtitle="puts things next to each other in different favours",
       type="scss">
@@ -46,11 +102,11 @@
       </div>
       <code slot="code">.list {
   @include horizontal(
-    $childSelector: '> li', // child element ex: .module__element
-    $vAlign: top,           // child element ex: .module__element
-    $type: inline,
-    $list: true,
-    $modern: $feature-flexbox
+    $childSelector: '> li',   // child element ex: .module__element
+    $vAlign: top,             // vertical alignment
+    $type: inline,            // samewidth and equidistant
+    $list: true,              // if set true => list reset
+    $modern: $feature-flexbox // uses the global setting by default
   );
 }</code>
     </module>

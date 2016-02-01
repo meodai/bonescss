@@ -12,18 +12,14 @@ export default {
 </script>
 
 <style lang="sass!sass-resources">
-body, html {
-  @include type;
-}
-
 @include textClasses(".t-");
 
 .content {
-  h2, h3 {
+  h2 {
     @include type(title);
   }
-  h2 + p {
-    @include type(lead, (margin-top: 0, padding-top: 1em, border-top: 1px solid black));
+  h3 {
+    @include type(lead);
   }
   p {
     @include type(paragraph);
@@ -40,11 +36,9 @@ body, html {
 <template lang="jade">
 div.typography
   .content
-    h2 Lorem Ipsum dolor sit amet
-    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit enim eu sem porta scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a viverra ligula. Nunc eleifend sagittis neque. Donec gravida elit in felis volutpat pellentesque. Donec vitae neque ac est molestie convallis. Vivamus scelerisque risus non neque accumsan lobortis. Nam nec lacinia tellus, id bibendum est. Etiam porttitor nisi non consectetur suscipit. Etiam sit amet turpis elementum, accumsan lectus eget, pharetra sapien. Praesent id ante bibendum, ornare elit ac, elementum quam. Cras gravida nibh sed hendrerit mattis. Donec iaculis lorem ut sem tristique ultrices id nec ligula. Proin sapien nunc, maximus ac enim id, facilisis maximus nibh. Suspendisse pulvinar semper enim, aliquet placerat massa lacinia in.
-    p Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipiscing elit. Nam hendrerit enim eu sem porta scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a viverra ligula. Nunc eleifend sagittis neque. Donec gravida elit in felis volutpat pellentesque. Donec vitae neque ac est molestie convallis. Vivamus scelerisque risus non neque accumsan lobortis. Nam nec lacinia tellus, id bibendum est. Etiam porttitor nisi non consectetur suscipit. Etiam sit amet turpis elementum, accumsan lectus eget, pharetra sapien. Praesent id ante bibendum, ornare elit ac, elementum quam. Cras gravida nibh sed hendrerit mattis. Donec iaculis lorem ut sem tristique ultrices id nec ligula. Proin sapien nunc, maximus ac enim id, facilisis maximus nibh. Suspendisse pulvinar semper enim, aliquet placerat massa lacinia in.
-    sub * this is some kind of annotation
-    h3 Second title
-    p Praesent risus elit, semper id arcu id, molestie aliquam leo. Proin enim libero, ornare tristique enim nec, tincidunt volutpat diam. Fusce interdum ipsum vulputate, aliquam massa eu, consequat sapien. Aenean pretium eu ante quis blandit. In ex dolor, dignissim vitae nunc sed, congue gravida quam. Nulla ullamcorper libero ut commodo congue. Ut a tempor nibh. Aliquam orci mauris, pulvinar vel commodo vitae, porttitor a odio. Nunc ut accumsan nibh. Integer ultrices sit amet ante eu rutrum.
-
+    h2 Title
+    p Paragraph
+    sub * this is some kind sub
+    h3 Lead
+    p Paragraph
 </template>
