@@ -47,16 +47,19 @@ $line-dashed: size(tiny) dashed color(black);
 }
 .demo {
   &__block {
-    background: color(green);
     padding: size(medium);
     margin-bottom: size(large);
+    color: color(white);
+    text-shadow: size(tiny, .5) size(tiny, .5) 0 color(black);
+    background: color(green);
     box-shadow: inset size(tiny) size(tiny) 0 0 color(black);
-
     .demo__block {
-      background: color(white);
       padding: size(medium);
       margin-bottom: 0;
+      color: color(black);
+      text-shadow: none;
       box-shadow: size(tiny) size(tiny) 0 0 color(black);
+      background: color(white);
     }
   }
   &__title {

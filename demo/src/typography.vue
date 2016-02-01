@@ -16,7 +16,7 @@ export default {
 
 .content {
   h2 {
-    @include type(title);
+    @include type(title, (margin-top: 0));
   }
   h3 {
     @include type(lead);
@@ -36,7 +36,7 @@ export default {
 <template lang="jade">
 div.typography
   .content
-    h2 Title
+    h2.demo__block Title
     p Paragraph
     sub * this is some kind sub
     h3 Lead
