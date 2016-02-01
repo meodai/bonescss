@@ -2,6 +2,7 @@ var Vue = require('vue');
 var base = require('./base.vue');
 var module = require('./module.vue');
 var typography = require('./typography.vue');
+var prism = require('./prism.js')
 
 var header = require('./_header.vue');
 
