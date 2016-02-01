@@ -81,7 +81,7 @@
 // @returns {[number]}
 @function size($name: medium, $multiplier: 1) {
   @if map-has-key($sizes, $name) {
-    @return map-get($sizes, $name) * $multiplyer;
+    @return map-get($sizes, $name) * $multiplier;
   }
 
   @warn "Unknown `#{$name}` in $sizes.";
