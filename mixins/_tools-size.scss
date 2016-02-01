@@ -79,7 +79,7 @@
 // size outputs $sizes
 // @param   {[string]} $name          key from $sizes map
 // @returns {[number]}
-@function size($name: medium, $multiplyer: 1) {
+@function size($name: medium, $multiplier: 1) {
   @if map-has-key($sizes, $name) {
     @return map-get($sizes, $name) * $multiplyer;
   }
