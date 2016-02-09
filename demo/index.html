@@ -8,6 +8,39 @@
   <pageheader></pageheader>
   <div class="module-demos site-width">
     <module
+      title="Base: sizes / metrics"
+      subtitle="project sizes packed in a handy function",
+      type="scss">
+
+      <p slot="description">
+        Typically used to name and normalize spaces in a project. Used for spaces
+        within and between modules and elements of the design. Also takes a multiplier
+        as a second argument. Handy if you want to negate numbers for examples
+      </p>
+
+      <div slot="demo">
+        <h3 class="demo__title">Size mixin</h3>
+        <h4 class="demo__title-sub">@include size(type);</h4>
+        <size></size>
+      </div>
+
+
+      <code slot="code">// setup variable
+$sizes: (
+  huge                  : 1rem * ($s-golden * 2),
+  large                 : 1rem * $s-golden,
+  medium                : 1rem,
+  small                 : 1rem * .5
+  tiny                  : 1rem * .25
+) !default;
+
+// renders a space
+@include size(
+  $name: medium, // name in $sizes
+  $multiplier: 1 // multiplier
+);</code>
+    </module>
+    <module
       title="Base: typography"
       subtitle="responsive front helpers",
       type="scss">
@@ -111,5 +144,5 @@ $types: (
 }</code>
     </module>
   </div>
-  <script src="build/demo/build.js"></script>
+  <script src="build.js"></script>
 </body>
