@@ -13,7 +13,7 @@
     }
     @include typeBreakpoint($type-breakpoints, $name, $default-types);
   } @else {
-    @warn 'no type named `#{$types}` in $types';
+    @warn 'no type named `#{$name}` in $types';
   }
 }
 
