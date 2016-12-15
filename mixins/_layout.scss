@@ -132,7 +132,7 @@ $horizontal-list-types: (
 // used for elements placed next to each other that should be equidistant
 // [|---|   |---|   |---|   |---|]
 @mixin horizontal-equidistant {
-  @include horizontal($childSelector: '*', $type: equidistant);
+  @include horizontal($childSelector: '> *', $type: equidistant);
 }
 
 // used to make table-layouts
