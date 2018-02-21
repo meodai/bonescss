@@ -1,3 +1,5 @@
+# *CURRENTLY NOT MAINTAINED*
+
 <img id="logo" align="right" height="90" style="margin: 0 0 20px 20px" src="http://imgh.us/icon_15566.svg">
 
 # bonescss
